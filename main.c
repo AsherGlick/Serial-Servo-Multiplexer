@@ -195,6 +195,10 @@ int main (void) {
     }
     while ( !(UCSR0A & (1<<RXC0))); // Wait for input for position
     servpos = UDR0;
+    // Error check
+    if (!(servpos & 0x80)) {
+      continue;
+    }
     // Parse input
     servpos = (servpos & ((servnum & 0x40) << 1));
     servnum = servnum & 0x1F;

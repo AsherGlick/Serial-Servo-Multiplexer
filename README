@@ -8,7 +8,7 @@ II. How to talk to the Multiplexor
 III. How the program works
   A. Serial Communication
   B. Emulating PWM
-IV. Using serial pins as servos and 
+IV. Using serial pins as servos and internal programming
 
 
 ------------------------------------
@@ -56,4 +56,31 @@ II. How to talk to the Multiplexor
   | Serial.send(IDByte);                                                       |
   | Serial.send(ROTByte);                                                      |
   +----------------------------------------------------------------------------+
+  
+  
+--------------------------
+III. How the program works
+--------------------------
+  
+  Serial communication
+  
+  The serial communication is done via basic USART functions for the AVR. The main build uses the settings for and ATMega328 (or any ATMEGAx8 chip). 
+  
+  
+  
+  
+  
+  
+  
+  
+  Emulating PWM
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
