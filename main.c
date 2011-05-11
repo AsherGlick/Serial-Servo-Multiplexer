@@ -257,4 +257,3 @@ void USART_Transmit( int input )
     UDR0 = 'E';
   }
 }
-

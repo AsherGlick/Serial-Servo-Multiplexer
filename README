@@ -3,8 +3,6 @@ The Serial Servo Multiplexor
 Under the GNU GPL! YAY!
 Documentation Coming Soon!
 
-
-
 I. Compileing and running the program  
 II. How to talk to the Multiplexor
 III. How the program works
@@ -13,14 +11,49 @@ III. How the program works
 IV. Using serial pins as servos and 
 
 
+------------------------------------
 I. Compiling and running the program
+------------------------------------
 
   The program comes with a makefile included. This make file will compile the main.c into a useable file. In order to run the make file to compile it into a .hex file that can be uploaded to your AVR you will need to use the command in the terminal.
       $make hex
    This will generate a bunch of other files as well as a 'myproject.hex' which you will use to upload the program to your chip. The makefile by default compiles 'main.c' and gives you 'myproject.hex' but these settings can be changes inside of the makefile.
-   In order for the makefile to work you will need a program
+   In order for the makefile to work you will need the program 'avr-gcc'. In order to program the divice you will need a program 'avrdude'.
    
 On Windows
-  When you use windows you have to disable digital driver signiture enforcement in order to program a chip.  
+  When you use windows you have to disable digital driver signiture enforcement in order to program a chip.
   
+----------------------------------
+II. How to talk to the Multiplexor
+----------------------------------
+
+  This version of the program uses a two byte method for communication to the multiplexor. The two different bytes are ID, which is the servo number, and VALUE, which is the new value to set the servo. The servo numbering starts at 1 instead of 0. This will prevent a null byte from ever being sent, and thus will prevent some systems from crashing. There are 18 servos thus there need to be five bits that store the ID Number (NUMn). This is becasue 2^4 < 18 < 2^5 or 16 < 18 < 32. The Rotation Value (ROTn) is the position that the servo should be in. That number is a value between 0 and 255, thus eight bits will hold it exactly. As a result we get:
+  
+  [----|----|----|NUM0|NUM1|NUM2|NUM3|NUM4] = ID Number Byte
+  [ROT0|ROT1|ROT2|ROT3|ROT4|ROT5|ROT6|ROT7] = Rotation Number Byte
+  
+  This will not work perfectly however. Because there is no phisical way to differentiat between the ID Number Byte and the Rotaion Number Byte. If they are both set to the value 18 (00010010) then they look exactly the same. If the program ever starts thinkning that the ID Number Byte is the Rotation Number and the rotation number is the ID Number then all of the servos will go to a value between 0 and 18 and constantly jitter between them. So to fix this we need an identifier bit. This will be the first bit of both bytes. However we see that ROT0 is in the way of the first bit in the Rotation Number Byte, To fix this we can just move ROT0 to a bit in the ID Number Byte. After we do this bitshift and add the indentifier bit we get:
+  [ 0  |ROT0|----|NUM0|NUM1|NUM2|NUM3|NUM4]
+  [ 1  |ROT1|ROT2|ROT3|ROT4|ROT5|ROT6|ROT7]
+  
+  Once we do that we can celarly identify the wich one is the ID bit and which one is the rotation Number Byte simply by looking at the leftmost bit. The function to convert this back into the two distinct bytes on the multiplexor is very cheap too. So that is how you communicate with the arduino.
+   ____________________________________________________________________________
+  /    Bitshifting Code Example                                                \
+  +----------------------------------------------------------------------------+
+  | // Initilize the Bytes in memory                                           |
+  | char IDByte; // a char is used because it is usually 1 byte long           |
+  | char ROTByte;                                                              |
+  |                                                                            |
+  | // Set the Bytes equal to the desired value                                |
+  | IDByte = <servo value 1-18>;                                               |
+  | ROTByte = <rotation value 0-256>;                                          |
+  |                                                                            |
+  | // Bitshift the bytes                                                      |
+  | IDByte &= (ROTByte & 0x80)>>1; // shift ROT0 to the right and add to NUM   |
+  | ROTByte &= 0x80; // put a 1 in the spot where ROT0 used to be              |
+  |                                                                            |
+  | // Now the values are set and you can send them                            |
+  | Serial.send(IDByte);                                                       |
+  | Serial.send(ROTByte);                                                      |
+  +----------------------------------------------------------------------------+
   
