@@ -1,0 +1,10 @@
+The Serial Servo Multiplexor
+
+Documentation Coming Soon!
+
+
+I. How to talk to the Multiplexor
+II. How the program works
+  A. Serial Communication
+  B. Emulating PWM
+III. Using serial pins as servos and 
