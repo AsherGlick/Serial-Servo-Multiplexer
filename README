@@ -1,10 +1,26 @@
 The Serial Servo Multiplexor
 
+Under the GNU GPL! YAY!
 Documentation Coming Soon!
 
 
-I. How to talk to the Multiplexor
-II. How the program works
+
+I. Compileing and running the program  
+II. How to talk to the Multiplexor
+III. How the program works
   A. Serial Communication
   B. Emulating PWM
-III. Using serial pins as servos and 
+IV. Using serial pins as servos and 
+
+
+I. Compiling and running the program
+
+  The program comes with a makefile included. This make file will compile the main.c into a useable file. In order to run the make file to compile it into a .hex file that can be uploaded to your AVR you will need to use the command in the terminal.
+      $make hex
+   This will generate a bunch of other files as well as a 'myproject.hex' which you will use to upload the program to your chip. The makefile by default compiles 'main.c' and gives you 'myproject.hex' but these settings can be changes inside of the makefile.
+   In order for the makefile to work you will need a program
+   
+On Windows
+  When you use windows you have to disable digital driver signiture enforcement in order to program a chip.  
+  
+  
