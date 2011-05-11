@@ -1,7 +1,21 @@
-/**\
-| This program was written by Asher Glick, you are free to use and miodify it as
-| you wish
-\**/
+/***********************************************************************\
+| Serial Servo Controler                                                |
+| Copyright (C) 2011  Asher Glick                                       |
+|                                                                       |
+| This program is free software: you can redistribute it and/or modify  |
+| it under the terms of the GNU General Public License as published by  |
+| the Free Software Foundation, either version 3 of the License, or     |
+| (at your option) any later version.                                   |
+|                                                                       |
+| This program is distributed in the hope that it will be useful,       |
+| but WITHOUT ANY WARRANTY; without even the implied warranty of        |
+| MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         |
+| GNU General Public License for more details.                          |
+|                                                                       |
+| You should have received a copy of the GNU General Public License     |
+| along with this program.  If not, see <http://www.gnu.org/licenses/>. |
+\***********************************************************************/
+
 /****************** CHIP SETTINGS ******************\
 | This program was designed to run on an ATMEGA328  |
 | chip running with an external clock at 8MHz       |
@@ -31,8 +45,6 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-
-
 
 volatile char bport[255];
 volatile char cport[255];
@@ -110,6 +122,9 @@ int main (void) {
   
   // Initlize Servos
   
+  // This is the servo add byte, when you & this value with a port byte it will
+  // add the 'servo off' bit to the port
+  // It turns the 1 to a 0 for a byte in the array
   servo_add [0]  = !(1<<0);
   servo_add [1]  = !(1<<1);
   servo_add [2]  = !(1<<2);
@@ -129,6 +144,9 @@ int main (void) {
   servo_add [16] = !(1<<0);
   servo_add [17] = !(1<<1);
   
+  
+  // This is the port that the servo is on. It is represented by a character pointer
+  // which happens to be the same as the array and can be use the same way
   servo_port [0]  = bport;
   servo_port [1]  = bport;
   servo_port [2]  = bport;
