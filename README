@@ -63,6 +63,35 @@ II. How to talk to the Multiplexor
 ------------------------------
 III. How to Hook Up the Servos
 ------------------------------ 
+
+PB0 - (PCINT0/CLKO/ICP1)   + 1  (0000 0001) 0x01
+PB1 - (PCINT1/OC1A)        + 2  (0000 0010) 0x02
+PB2 - (PCINT2/SS/OC1B)     + 3  (0000 0100) 0x04
+PB3 - (PCINT3/OC2A/MOSI)   + 4  (0000 1000) 0x08
+PB4 - (PCINT4/MISO)        + 5  (0001 0000) 0x10
+PB5 - (SCK/PCINT5)         + 6  (0010 0000) 0x20
+PB6 - (PCINT6/XTAL1/TOSC1
+PB7 - (PCINT7/XTAL2/TOSC2)
+
+PC0 - (ADC0/PCINT8)        + 7  (0000 0001) 0x01
+PC1 - (ADC1/PCINT9)        + 8  (0000 0010) 0x02
+PC2 - (ADC2/PCINT10)       + 9  (0000 0100) 0x04
+PC3 - (ADC3/PCINT11)       + 10 (0000 1000) 0x08
+PC4 - (ADC4/SDA/PCINT12)   + 11 (0001 0000) 0x10
+PC5 - (ADC5/SCL/PCINT13)   + 12 (0010 0000) 0x20
+PC6 - (RESET/PCINT14)      x
+PC7 - -------------------- x
+
+PD0 - (RXD/PCINT16)        x
+PD1 - (TXD/PCINT17)        x
+PD2 - (INT0/PCINT18)       + 13 (0000 0100) 0x04
+PD3 - (PCINT19/OC2B/INT1)  + 14 (0000 1000) 0x08
+PD4 - (PCINT20/XCK/T0)     + 15 (0001 0000) 0x10
+PD5 - (PCINT21/OC0B/T1)    + 16 (0010 0000) 0x20
+PD6 - (PCINT22/OC0A/AIN0)  + 17 (0100 0000) 0x40
+PD7 - (PCINT23/AIN0)       + 18 (1000 0000) 0x80
+
+
 --------------------------
 IV. How the program works
 --------------------------

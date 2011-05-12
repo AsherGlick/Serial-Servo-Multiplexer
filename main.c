@@ -131,18 +131,18 @@ int main (void) {
   servo_add [3]  = !(1<<3);
   servo_add [4]  = !(1<<4);
   servo_add [5]  = !(1<<5);
-  servo_add [6]  = !(1<<6);
-  servo_add [7]  = !(1<<7);
-  servo_add [8]  = !(1<<0);
-  servo_add [9]  = !(1<<1);
-  servo_add [10] = !(1<<2);
-  servo_add [11] = !(1<<3);
-  servo_add [12] = !(1<<4);
-  servo_add [13] = !(1<<5);
-  servo_add [14] = !(1<<6);
-  servo_add [15] = !(1<<7);
-  servo_add [16] = !(1<<0);
-  servo_add [17] = !(1<<1);
+  servo_add [6]  = !(1<<0);
+  servo_add [7]  = !(1<<1);
+  servo_add [8]  = !(1<<2);
+  servo_add [9]  = !(1<<3);
+  servo_add [10] = !(1<<4);
+  servo_add [11] = !(1<<5);
+  servo_add [12] = !(1<<2);
+  servo_add [13] = !(1<<3);
+  servo_add [14] = !(1<<4);
+  servo_add [15] = !(1<<5);
+  servo_add [16] = !(1<<6);
+  servo_add [17] = !(1<<7);
   
   
   // This is the port that the servo is on. It is represented by a character pointer
@@ -153,16 +153,16 @@ int main (void) {
   servo_port [3]  = bport;
   servo_port [4]  = bport;
   servo_port [5]  = bport;
-  servo_port [6]  = bport;
-  servo_port [7]  = bport;
+  servo_port [6]  = cport;
+  servo_port [7]  = cport;
   servo_port [8]  = cport;
   servo_port [9]  = cport;
   servo_port [10] = cport;
   servo_port [11] = cport;
-  servo_port [12] = cport;
-  servo_port [13] = cport;
-  servo_port [14] = cport;
-  servo_port [15] = cport;
+  servo_port [12] = dport;
+  servo_port [13] = dport;
+  servo_port [14] = dport;
+  servo_port [15] = dport;
   servo_port [16] = dport;
   servo_port [17] = dport;  
   
