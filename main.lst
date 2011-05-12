@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cciIBnDz.s 			page 1
+GAS LISTING /tmp/ccsCfOa3.s 			page 1
 
 
    1               		.file	"main.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cciIBnDz.s 			page 1
   55               		.stabs	"uint_fast16_t:t(4,22)=(4,4)",128,0,228,0
   56               		.stabs	"int_fast32_t:t(4,23)=(4,5)",128,0,233,0
   57               		.stabs	"uint_fast32_t:t(4,24)=(4,6)",128,0,238,0
-GAS LISTING /tmp/cciIBnDz.s 			page 2
+GAS LISTING /tmp/ccsCfOa3.s 			page 2
 
 
   58               		.stabs	"int_fast64_t:t(4,25)=(4,7)",128,0,246,0
@@ -74,7 +74,7 @@ GAS LISTING /tmp/cciIBnDz.s 			page 1
   68               		.stabs	"__fuse_t:t(5,1)=(5,2)=s3low:(0,11),0,8;high:(0,11),8,8;extended:(0,11),16,8;;",128,0,239,0
   69               		.stabn	162,0,0,0
   70               		.stabn	162,0,0,0
-  71               		.stabs	"__vector_11:F(0,15)",36,0,64,__vector_11
+  71               		.stabs	"__vector_11:F(0,15)",36,0,65,__vector_11
   72               	.global	__vector_11
   73               		.type	__vector_11, @function
   74               	__vector_11:
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cciIBnDz.s 			page 1
   36:main.c        **** |                       -U lfuse:w:0xE2:m -U hfuse:w:0xD9:m -U efuse:w:0x07:m  |
   37:main.c        **** |                                                                              |
   38:main.c        **** | NOTE: when messing with fuses, do this at your own risk. These fuses for the |
-GAS LISTING /tmp/cciIBnDz.s 			page 3
+GAS LISTING /tmp/ccsCfOa3.s 			page 3
 
 
   39:main.c        **** |        ATMEGA328P (ATMEGA328) worked for me, however if they do not work for |
@@ -127,26 +127,27 @@ GAS LISTING /tmp/cciIBnDz.s 			page 1
   42:main.c        **** \******************************************************************************/
   43:main.c        **** 
   44:main.c        **** 
-  45:main.c        **** #include <avr/io.h>
-  46:main.c        **** #include <avr/interrupt.h>
-  47:main.c        **** 
-  48:main.c        **** volatile char bport[255];
-  49:main.c        **** volatile char cport[255];
-  50:main.c        **** volatile char dport[255];
-  51:main.c        **** 
-  52:main.c        **** //servo define values
-  53:main.c        **** volatile char servo_add [18];
-  54:main.c        **** volatile char servo_sub [18]; 
-  55:main.c        **** volatile char * servo_port [18];
-  56:main.c        **** volatile int servo_pos [18];
-  57:main.c        ****  
-  58:main.c        **** 
+  45:main.c        **** 
+  46:main.c        **** #include <avr/io.h>
+  47:main.c        **** #include <avr/interrupt.h>
+  48:main.c        **** 
+  49:main.c        **** volatile char bport[255];
+  50:main.c        **** volatile char cport[255];
+  51:main.c        **** volatile char dport[255];
+  52:main.c        **** 
+  53:main.c        **** //servo define values
+  54:main.c        **** volatile char servo_add [18];
+  55:main.c        **** volatile char servo_sub [18]; 
+  56:main.c        **** volatile char * servo_port [18];
+  57:main.c        **** volatile int servo_pos [18];
+  58:main.c        ****  
   59:main.c        **** 
-  60:main.c        **** /************************* TIMER1 COMPARE A INTERRUPT *************************\
-  61:main.c        **** | 
-  62:main.c        **** \******************************************************************************/
-  63:main.c        **** ISR(TIMER1_COMPA_vect) {
-  76               		.stabn	68,0,64,.LM0-.LFBB1
+  60:main.c        **** 
+  61:main.c        **** /************************* TIMER1 COMPARE A INTERRUPT *************************\
+  62:main.c        **** | 
+  63:main.c        **** \******************************************************************************/
+  64:main.c        **** ISR(TIMER1_COMPA_vect) {
+  76               		.stabn	68,0,65,.LM0-.LFBB1
   77               	.LM0:
   78               	.LFBB1:
   79 0000 1F92      		push __zero_reg__
@@ -158,110 +159,110 @@ GAS LISTING /tmp/cciIBnDz.s 			page 1
   85 000c 3F93      		push r19
   86 000e 4F93      		push r20
   87 0010 5F93      		push r21
-  88 0012 8F93      		push r24
-  89 0014 9F93      		push r25
-  90 0016 AF93      		push r26
-  91 0018 BF93      		push r27
-  92 001a EF93      		push r30
-  93 001c FF93      		push r31
-  94               	/* prologue: Signal */
-  95               	/* frame size = 0 */
-  64:main.c        ****   // run through all cycles
-  65:main.c        ****   int i ;
-  66:main.c        ****   PORTB = 0xFF;
-  96               		.stabn	68,0,67,.LM1-.LFBB1
-  97               	.LM1:
-  98 001e 8FEF      		ldi r24,lo8(-1)
-  99 0020 85B9      		out 37-32,r24
-  67:main.c        ****   PORTC = 0xFF;
- 100               		.stabn	68,0,68,.LM2-.LFBB1
- 101               	.LM2:
- 102 0022 88B9      		out 40-32,r24
-  68:main.c        ****   PORTD = 0xFF;
-GAS LISTING /tmp/cciIBnDz.s 			page 4
+  88 0012 6F93      		push r22
+  89 0014 7F93      		push r23
+  90 0016 8F93      		push r24
+  91 0018 9F93      		push r25
+  92 001a AF93      		push r26
+  93 001c BF93      		push r27
+  94 001e EF93      		push r30
+  95 0020 FF93      		push r31
+  96               	/* prologue: Signal */
+  97               	/* frame size = 0 */
+  65:main.c        ****   // run through all cycles
+  66:main.c        ****   int i ;
+  67:main.c        ****   PORTB = 0xFF;
+  98               		.stabn	68,0,68,.LM1-.LFBB1
+  99               	.LM1:
+ 100 0022 8FEF      		ldi r24,lo8(-1)
+ 101 0024 85B9      		out 37-32,r24
+  68:main.c        ****   PORTC = 0xFF;
+ 102               		.stabn	68,0,69,.LM2-.LFBB1
+GAS LISTING /tmp/ccsCfOa3.s 			page 4
 
 
- 103               		.stabn	68,0,69,.LM3-.LFBB1
- 104               	.LM3:
- 105 0024 8BB9      		out 43-32,r24
- 106 0026 24EF      		ldi r18,lo8(500)
- 107 0028 31E0      		ldi r19,hi8(500)
- 108 002a 40E0      		ldi r20,hlo8(500)
- 109 002c 50E0      		ldi r21,hhi8(500)
- 110               	.L3:
- 111 002e D901      		movw r26,r18
- 112 0030 A45F      		subi r26,lo8(-(-500))
- 113 0032 B140      		sbci r27,hi8(-(-500))
- 114               	.LBB5:
-  69:main.c        ****   for (i = 0; i<256; i++) {
-  70:main.c        ****     PORTB &= bport[i];
- 115               		.stabn	68,0,71,.LM4-.LFBB1
- 116               	.LM4:
- 117 0034 95B1      		in r25,37-32
- 118 0036 FD01      		movw r30,r26
- 119 0038 E050      		subi r30,lo8(-(bport))
- 120 003a F040      		sbci r31,hi8(-(bport))
- 121 003c 8081      		ld r24,Z
- 122 003e 8923      		and r24,r25
- 123 0040 85B9      		out 37-32,r24
-  71:main.c        ****     PORTC &= cport[i];
- 124               		.stabn	68,0,72,.LM5-.LFBB1
- 125               	.LM5:
- 126 0042 98B1      		in r25,40-32
- 127 0044 FD01      		movw r30,r26
- 128 0046 E050      		subi r30,lo8(-(cport))
- 129 0048 F040      		sbci r31,hi8(-(cport))
- 130 004a 8081      		ld r24,Z
- 131 004c 8923      		and r24,r25
- 132 004e 88B9      		out 40-32,r24
-  72:main.c        ****     PORTD &= dport[i];
- 133               		.stabn	68,0,73,.LM6-.LFBB1
- 134               	.LM6:
- 135 0050 9BB1      		in r25,43-32
- 136 0052 A050      		subi r26,lo8(-(dport))
- 137 0054 B040      		sbci r27,hi8(-(dport))
- 138 0056 8C91      		ld r24,X
- 139 0058 8923      		and r24,r25
- 140 005a 8BB9      		out 43-32,r24
- 141               	.L2:
-  73:main.c        ****     // calculate
-  74:main.c        ****     long newtime = (500) + i*(500/256);    
-  75:main.c        ****     // wait here untill the next cycle should start
-  76:main.c        ****     while (TCNT1 < newtime);
- 142               		.stabn	68,0,77,.LM7-.LFBB1
- 143               	.LM7:
- 144 005c 8091 8400 		lds r24,132
- 145 0060 9091 8500 		lds r25,(132)+1
- 146 0064 A0E0      		ldi r26,lo8(0)
- 147 0066 B0E0      		ldi r27,hi8(0)
- 148 0068 8217      		cp r24,r18
- 149 006a 9307      		cpc r25,r19
- 150 006c A407      		cpc r26,r20
- 151 006e B507      		cpc r27,r21
-GAS LISTING /tmp/cciIBnDz.s 			page 5
-
-
- 152 0070 04F0      		brlt .L2
- 153 0072 2F5F      		subi r18,lo8(-(1))
- 154 0074 3F4F      		sbci r19,hi8(-(1))
- 155 0076 4F4F      		sbci r20,hlo8(-(1))
- 156 0078 5F4F      		sbci r21,hhi8(-(1))
- 157               	.LBE5:
+ 103               	.LM2:
+ 104 0026 88B9      		out 40-32,r24
+  69:main.c        ****   PORTD = 0xFF;
+ 105               		.stabn	68,0,70,.LM3-.LFBB1
+ 106               	.LM3:
+ 107 0028 8BB9      		out 43-32,r24
+ 108 002a 60E0      		ldi r22,lo8(0)
+ 109 002c 70E0      		ldi r23,hi8(0)
+ 110 002e 28EE      		ldi r18,lo8(1000)
+ 111 0030 33E0      		ldi r19,hi8(1000)
+ 112 0032 40E0      		ldi r20,hlo8(1000)
+ 113 0034 50E0      		ldi r21,hhi8(1000)
+ 114               	.L3:
+ 115               	.LBB5:
   70:main.c        ****   for (i = 0; i<256; i++) {
- 158               		.stabn	68,0,70,.LM8-.LFBB1
- 159               	.LM8:
- 160 007a 243F      		cpi r18,lo8(756)
- 161 007c 82E0      		ldi r24,hi8(756)
- 162 007e 3807      		cpc r19,r24
- 163 0080 80E0      		ldi r24,hlo8(756)
- 164 0082 4807      		cpc r20,r24
- 165 0084 80E0      		ldi r24,hhi8(756)
- 166 0086 5807      		cpc r21,r24
+  71:main.c        ****     PORTB &= bport[i];
+ 116               		.stabn	68,0,72,.LM4-.LFBB1
+ 117               	.LM4:
+ 118 0036 95B1      		in r25,37-32
+ 119 0038 FB01      		movw r30,r22
+ 120 003a E050      		subi r30,lo8(-(bport))
+ 121 003c F040      		sbci r31,hi8(-(bport))
+ 122 003e 8081      		ld r24,Z
+ 123 0040 8923      		and r24,r25
+ 124 0042 85B9      		out 37-32,r24
+  72:main.c        ****     PORTC &= cport[i];
+ 125               		.stabn	68,0,73,.LM5-.LFBB1
+ 126               	.LM5:
+ 127 0044 98B1      		in r25,40-32
+ 128 0046 FB01      		movw r30,r22
+ 129 0048 E050      		subi r30,lo8(-(cport))
+ 130 004a F040      		sbci r31,hi8(-(cport))
+ 131 004c 8081      		ld r24,Z
+ 132 004e 8923      		and r24,r25
+ 133 0050 88B9      		out 40-32,r24
+  73:main.c        ****     PORTD &= dport[i];
+ 134               		.stabn	68,0,74,.LM6-.LFBB1
+ 135               	.LM6:
+ 136 0052 9BB1      		in r25,43-32
+ 137 0054 FB01      		movw r30,r22
+ 138 0056 E050      		subi r30,lo8(-(dport))
+ 139 0058 F040      		sbci r31,hi8(-(dport))
+ 140 005a 8081      		ld r24,Z
+ 141 005c 8923      		and r24,r25
+ 142 005e 8BB9      		out 43-32,r24
+ 143               	.L2:
+  74:main.c        ****     // calculate
+  75:main.c        ****     long newtime = (1000) + i*(1000/256);    
+  76:main.c        ****     // wait here untill the next cycle should start
+  77:main.c        ****     while (TCNT1 < newtime);
+ 144               		.stabn	68,0,78,.LM7-.LFBB1
+ 145               	.LM7:
+ 146 0060 8091 8400 		lds r24,132
+ 147 0064 9091 8500 		lds r25,(132)+1
+ 148 0068 A0E0      		ldi r26,lo8(0)
+ 149 006a B0E0      		ldi r27,hi8(0)
+ 150 006c 8217      		cp r24,r18
+GAS LISTING /tmp/ccsCfOa3.s 			page 5
+
+
+ 151 006e 9307      		cpc r25,r19
+ 152 0070 A407      		cpc r26,r20
+ 153 0072 B507      		cpc r27,r21
+ 154 0074 04F0      		brlt .L2
+ 155               	.LBE5:
+  71:main.c        ****   for (i = 0; i<256; i++) {
+ 156               		.stabn	68,0,71,.LM8-.LFBB1
+ 157               	.LM8:
+ 158 0076 6F5F      		subi r22,lo8(-(1))
+ 159 0078 7F4F      		sbci r23,hi8(-(1))
+ 160 007a 2D5F      		subi r18,lo8(-(3))
+ 161 007c 3F4F      		sbci r19,hi8(-(3))
+ 162 007e 4F4F      		sbci r20,hlo8(-(3))
+ 163 0080 5F4F      		sbci r21,hhi8(-(3))
+ 164 0082 81E0      		ldi r24,hi8(256)
+ 165 0084 6030      		cpi r22,lo8(256)
+ 166 0086 7807      		cpc r23,r24
  167 0088 01F4      		brne .L3
  168               	/* epilogue start */
-  77:main.c        ****   }
-  78:main.c        **** }
- 169               		.stabn	68,0,79,.LM9-.LFBB1
+  78:main.c        ****   }
+  79:main.c        **** }
+ 169               		.stabn	68,0,80,.LM9-.LFBB1
  170               	.LM9:
  171 008a FF91      		pop r31
  172 008c EF91      		pop r30
@@ -269,823 +270,825 @@ GAS LISTING /tmp/cciIBnDz.s 			page 1
  174 0090 AF91      		pop r26
  175 0092 9F91      		pop r25
  176 0094 8F91      		pop r24
- 177 0096 5F91      		pop r21
- 178 0098 4F91      		pop r20
- 179 009a 3F91      		pop r19
- 180 009c 2F91      		pop r18
- 181 009e 0F90      		pop r0
- 182 00a0 0FBE      		out __SREG__,r0
+ 177 0096 7F91      		pop r23
+ 178 0098 6F91      		pop r22
+ 179 009a 5F91      		pop r21
+ 180 009c 4F91      		pop r20
+ 181 009e 3F91      		pop r19
+ 182 00a0 2F91      		pop r18
  183 00a2 0F90      		pop r0
- 184 00a4 1F90      		pop __zero_reg__
- 185 00a6 1895      		reti
- 186               		.size	__vector_11, .-__vector_11
- 187               		.stabs	"i:r(0,1)",64,0,66,26
- 188               		.stabn	192,0,0,.LFBB1-.LFBB1
- 189               		.stabn	224,0,0,.Lscope1-.LFBB1
- 190               	.Lscope1:
- 191               		.stabs	"",36,0,0,.Lscope1-.LFBB1
- 192               		.stabd	78,0,0
- 193               		.stabs	"wait:F(0,15)",36,0,84,wait
- 194               		.stabs	"time:P(0,5)",64,0,84,22
- 195               	.global	wait
- 196               		.type	wait, @function
- 197               	wait:
- 198               		.stabd	46,0,0
-  79:main.c        **** 
-  80:main.c        **** /************************************ WAIT ************************************\
-  81:main.c        **** | A generic wait function                                                      |
-  82:main.c        **** \******************************************************************************/
-  83:main.c        **** void wait (unsigned long time) {
- 199               		.stabn	68,0,84,.LM10-.LFBB2
- 200               	.LM10:
-GAS LISTING /tmp/cciIBnDz.s 			page 6
+ 184 00a4 0FBE      		out __SREG__,r0
+ 185 00a6 0F90      		pop r0
+ 186 00a8 1F90      		pop __zero_reg__
+ 187 00aa 1895      		reti
+ 188               		.size	__vector_11, .-__vector_11
+ 189               		.stabs	"i:r(0,1)",64,0,67,22
+ 190               		.stabn	192,0,0,.LFBB1-.LFBB1
+ 191               		.stabn	224,0,0,.Lscope1-.LFBB1
+ 192               	.Lscope1:
+ 193               		.stabs	"",36,0,0,.Lscope1-.LFBB1
+ 194               		.stabd	78,0,0
+ 195               		.stabs	"wait:F(0,15)",36,0,85,wait
+ 196               		.stabs	"time:P(0,5)",64,0,85,22
+ 197               	.global	wait
+ 198               		.type	wait, @function
+ 199               	wait:
+ 200               		.stabd	46,0,0
+  80:main.c        **** 
+  81:main.c        **** /************************************ WAIT ************************************\
+  82:main.c        **** | A generic wait function                                                      |
+  83:main.c        **** \******************************************************************************/
+GAS LISTING /tmp/ccsCfOa3.s 			page 6
 
 
- 201               	.LFBB2:
- 202               	/* prologue: function */
- 203               	/* frame size = 0 */
- 204               		.stabn	68,0,84,.LM11-.LFBB2
- 205               	.LM11:
- 206 00a8 20E0      		ldi r18,lo8(0)
- 207 00aa 30E0      		ldi r19,hi8(0)
- 208 00ac 40E0      		ldi r20,hlo8(0)
- 209 00ae 50E0      		ldi r21,hhi8(0)
- 210 00b0 00C0      		rjmp .L8
- 211               	.L9:
-  84:main.c        ****   long i;
-  85:main.c        ****   for (i = 0; i < time; i++) {
-  86:main.c        ****     asm volatile ("nop");
- 212               		.stabn	68,0,87,.LM12-.LFBB2
- 213               	.LM12:
- 214               	/* #APP */
- 215               	 ;  87 "main.c" 1
- 216 00b2 0000      		nop
- 217               	 ;  0 "" 2
-  86:main.c        ****     asm volatile ("nop");
- 218               		.stabn	68,0,86,.LM13-.LFBB2
- 219               	.LM13:
- 220               	/* #NOAPP */
- 221 00b4 2F5F      		subi r18,lo8(-(1))
- 222 00b6 3F4F      		sbci r19,hi8(-(1))
- 223 00b8 4F4F      		sbci r20,hlo8(-(1))
- 224 00ba 5F4F      		sbci r21,hhi8(-(1))
- 225               	.L8:
- 226 00bc 2617      		cp r18,r22
- 227 00be 3707      		cpc r19,r23
- 228 00c0 4807      		cpc r20,r24
- 229 00c2 5907      		cpc r21,r25
- 230 00c4 00F0      		brlo .L9
- 231               	/* epilogue start */
-  87:main.c        ****   }
-  88:main.c        **** }
- 232               		.stabn	68,0,89,.LM14-.LFBB2
- 233               	.LM14:
- 234 00c6 0895      		ret
- 235               		.size	wait, .-wait
- 236               		.stabs	"i:r(0,3)",64,0,85,18
- 237               		.stabn	192,0,0,.LFBB2-.LFBB2
- 238               		.stabn	224,0,0,.Lscope2-.LFBB2
- 239               	.Lscope2:
- 240               		.stabs	"",36,0,0,.Lscope2-.LFBB2
- 241               		.stabd	78,0,0
- 242               		.stabs	"main:F(0,1)",36,0,101,main
- 243               	.global	main
- 244               		.type	main, @function
- 245               	main:
- 246               		.stabd	46,0,0
-  89:main.c        **** 
-  90:main.c        **** void USART_Init(void);
-  91:main.c        **** void USART_Transmit( int input );
-  92:main.c        **** 
-  93:main.c        **** /******************************* MAIN FUNCTION *******************************\
-GAS LISTING /tmp/cciIBnDz.s 			page 7
+  84:main.c        **** void wait (unsigned long time) {
+ 201               		.stabn	68,0,85,.LM10-.LFBB2
+ 202               	.LM10:
+ 203               	.LFBB2:
+ 204               	/* prologue: function */
+ 205               	/* frame size = 0 */
+ 206               		.stabn	68,0,85,.LM11-.LFBB2
+ 207               	.LM11:
+ 208 00ac 20E0      		ldi r18,lo8(0)
+ 209 00ae 30E0      		ldi r19,hi8(0)
+ 210 00b0 40E0      		ldi r20,hlo8(0)
+ 211 00b2 50E0      		ldi r21,hhi8(0)
+ 212 00b4 00C0      		rjmp .L8
+ 213               	.L9:
+  85:main.c        ****   long i;
+  86:main.c        ****   for (i = 0; i < time; i++) {
+  87:main.c        ****     asm volatile ("nop");
+ 214               		.stabn	68,0,88,.LM12-.LFBB2
+ 215               	.LM12:
+ 216               	/* #APP */
+ 217               	 ;  88 "main.c" 1
+ 218 00b6 0000      		nop
+ 219               	 ;  0 "" 2
+  87:main.c        ****     asm volatile ("nop");
+ 220               		.stabn	68,0,87,.LM13-.LFBB2
+ 221               	.LM13:
+ 222               	/* #NOAPP */
+ 223 00b8 2F5F      		subi r18,lo8(-(1))
+ 224 00ba 3F4F      		sbci r19,hi8(-(1))
+ 225 00bc 4F4F      		sbci r20,hlo8(-(1))
+ 226 00be 5F4F      		sbci r21,hhi8(-(1))
+ 227               	.L8:
+ 228 00c0 2617      		cp r18,r22
+ 229 00c2 3707      		cpc r19,r23
+ 230 00c4 4807      		cpc r20,r24
+ 231 00c6 5907      		cpc r21,r25
+ 232 00c8 00F0      		brlo .L9
+ 233               	/* epilogue start */
+  88:main.c        ****   }
+  89:main.c        **** }
+ 234               		.stabn	68,0,90,.LM14-.LFBB2
+ 235               	.LM14:
+ 236 00ca 0895      		ret
+ 237               		.size	wait, .-wait
+ 238               		.stabs	"i:r(0,3)",64,0,86,18
+ 239               		.stabn	192,0,0,.LFBB2-.LFBB2
+ 240               		.stabn	224,0,0,.Lscope2-.LFBB2
+ 241               	.Lscope2:
+ 242               		.stabs	"",36,0,0,.Lscope2-.LFBB2
+ 243               		.stabd	78,0,0
+ 244               		.stabs	"main:F(0,1)",36,0,102,main
+ 245               	.global	main
+ 246               		.type	main, @function
+ 247               	main:
+ 248               		.stabd	46,0,0
+  90:main.c        **** 
+  91:main.c        **** void USART_Init(void);
+GAS LISTING /tmp/ccsCfOa3.s 			page 7
 
 
-  94:main.c        **** | The main function in this program mainly only handdles the serial input     |
-  95:main.c        **** | However because the interrupt only runs for 10% of the program anything     |
-  96:main.c        **** | that can be calculatied at a 90% effency at 8Mhz (effectively 7.2Mhz) then  |
-  97:main.c        **** | it can be run on-chip, allowing the user to cut down on expences of other   |
-  98:main.c        **** | devices to communicate with the chip.                                       |
-  99:main.c        **** \*****************************************************************************/
- 100:main.c        **** int main (void) {
- 247               		.stabn	68,0,101,.LM15-.LFBB3
- 248               	.LM15:
- 249               	.LFBB3:
- 250               	/* prologue: function */
- 251               	/* frame size = 0 */
- 101:main.c        ****   int i = 0;
- 102:main.c        ****   
- 103:main.c        ****   // PIN INITILIZATION (TO FIX, all out should be able to be done)
- 104:main.c        ****   DDRD = 0xFF;// 00000000 configure output on port D
- 252               		.stabn	68,0,105,.LM16-.LFBB3
- 253               	.LM16:
- 254 00c8 8FEF      		ldi r24,lo8(-1)
- 255 00ca 8AB9      		out 42-32,r24
- 105:main.c        ****   DDRB = 0xFF;// 00011100 configure output on port B
- 256               		.stabn	68,0,106,.LM17-.LFBB3
- 257               	.LM17:
- 258 00cc 84B9      		out 36-32,r24
- 106:main.c        ****   DDRC = 0xFF;//                    output on port C
- 259               		.stabn	68,0,107,.LM18-.LFBB3
- 260               	.LM18:
- 261 00ce 87B9      		out 39-32,r24
- 107:main.c        ****   
- 108:main.c        ****   // SERVO TIMER INITILIZATION
- 109:main.c        ****   TCCR1B |= (1<<WGM12);
- 262               		.stabn	68,0,110,.LM19-.LFBB3
- 263               	.LM19:
- 264 00d0 8091 8100 		lds r24,129
- 265 00d4 8860      		ori r24,lo8(8)
- 266 00d6 8093 8100 		sts 129,r24
- 110:main.c        ****   OCR1A = 10000;
- 267               		.stabn	68,0,111,.LM20-.LFBB3
- 268               	.LM20:
- 269 00da 80E1      		ldi r24,lo8(10000)
- 270 00dc 97E2      		ldi r25,hi8(10000)
- 271 00de 9093 8900 		sts (136)+1,r25
- 272 00e2 8093 8800 		sts 136,r24
- 273 00e6 80E0      		ldi r24,lo8(0)
- 274 00e8 90E0      		ldi r25,hi8(0)
- 111:main.c        ****   
- 112:main.c        ****   //Initlize Off Port Bits
- 113:main.c        ****   for (i = 0 ; i < 256; i++) {
- 114:main.c        ****     bport[i] = 0xFF;
- 275               		.stabn	68,0,115,.LM21-.LFBB3
- 276               	.LM21:
- 277 00ea AFEF      		ldi r26,lo8(-1)
- 278               	.L12:
- 279 00ec 20E0      		ldi r18,lo8(bport)
- 280 00ee 30E0      		ldi r19,hi8(bport)
- 281 00f0 FC01      		movw r30,r24
- 282 00f2 E20F      		add r30,r18
-GAS LISTING /tmp/cciIBnDz.s 			page 8
-
-
- 283 00f4 F31F      		adc r31,r19
- 284 00f6 A083      		st Z,r26
- 115:main.c        ****     cport[i] = 0xFF;
- 285               		.stabn	68,0,116,.LM22-.LFBB3
- 286               	.LM22:
- 287 00f8 40E0      		ldi r20,lo8(cport)
- 288 00fa 50E0      		ldi r21,hi8(cport)
- 289 00fc FC01      		movw r30,r24
- 290 00fe E40F      		add r30,r20
- 291 0100 F51F      		adc r31,r21
- 292 0102 A083      		st Z,r26
- 116:main.c        ****     dport[i] = 0xFF;
- 293               		.stabn	68,0,117,.LM23-.LFBB3
- 294               	.LM23:
- 295 0104 60E0      		ldi r22,lo8(dport)
- 296 0106 70E0      		ldi r23,hi8(dport)
- 297 0108 FC01      		movw r30,r24
- 298 010a E60F      		add r30,r22
- 299 010c F71F      		adc r31,r23
- 300 010e A083      		st Z,r26
+  92:main.c        **** void USART_Transmit( int input );
+  93:main.c        **** 
+  94:main.c        **** /******************************* MAIN FUNCTION *******************************\
+  95:main.c        **** | The main function in this program mainly only handdles the serial input     |
+  96:main.c        **** | However because the interrupt only runs for 10% of the program anything     |
+  97:main.c        **** | that can be calculatied at a 90% effency at 8Mhz (effectively 7.2Mhz) then  |
+  98:main.c        **** | it can be run on-chip, allowing the user to cut down on expences of other   |
+  99:main.c        **** | devices to communicate with the chip.                                       |
+ 100:main.c        **** \*****************************************************************************/
+ 101:main.c        **** int main (void) {
+ 249               		.stabn	68,0,102,.LM15-.LFBB3
+ 250               	.LM15:
+ 251               	.LFBB3:
+ 252               	/* prologue: function */
+ 253               	/* frame size = 0 */
+ 102:main.c        ****   int i = 0;
+ 103:main.c        ****   
+ 104:main.c        ****   // PIN INITILIZATION (TO FIX, all out should be able to be done)
+ 105:main.c        ****   DDRD = 0xFF;// 00000000 configure output on port D
+ 254               		.stabn	68,0,106,.LM16-.LFBB3
+ 255               	.LM16:
+ 256 00cc 8FEF      		ldi r24,lo8(-1)
+ 257 00ce 8AB9      		out 42-32,r24
+ 106:main.c        ****   DDRB = 0xFF;// 00011100 configure output on port B
+ 258               		.stabn	68,0,107,.LM17-.LFBB3
+ 259               	.LM17:
+ 260 00d0 84B9      		out 36-32,r24
+ 107:main.c        ****   DDRC = 0xFF;//                    output on port C
+ 261               		.stabn	68,0,108,.LM18-.LFBB3
+ 262               	.LM18:
+ 263 00d2 87B9      		out 39-32,r24
+ 108:main.c        ****   
+ 109:main.c        ****   // SERVO TIMER INITILIZATION
+ 110:main.c        ****   TCCR1B |= (1<<WGM12);
+ 264               		.stabn	68,0,111,.LM19-.LFBB3
+ 265               	.LM19:
+ 266 00d4 8091 8100 		lds r24,129
+ 267 00d8 8860      		ori r24,lo8(8)
+ 268 00da 8093 8100 		sts 129,r24
+ 111:main.c        ****   OCR1A = 20000;
+ 269               		.stabn	68,0,112,.LM20-.LFBB3
+ 270               	.LM20:
+ 271 00de 80E2      		ldi r24,lo8(20000)
+ 272 00e0 9EE4      		ldi r25,hi8(20000)
+ 273 00e2 9093 8900 		sts (136)+1,r25
+ 274 00e6 8093 8800 		sts 136,r24
+ 275 00ea 80E0      		ldi r24,lo8(0)
+ 276 00ec 90E0      		ldi r25,hi8(0)
+ 112:main.c        ****   
+ 113:main.c        ****   //Initlize Off Port Bits
  114:main.c        ****   for (i = 0 ; i < 256; i++) {
- 301               		.stabn	68,0,114,.LM24-.LFBB3
- 302               	.LM24:
- 303 0110 0196      		adiw r24,1
- 304 0112 B1E0      		ldi r27,hi8(256)
- 305 0114 8030      		cpi r24,lo8(256)
- 306 0116 9B07      		cpc r25,r27
- 307 0118 01F4      		brne .L12
- 117:main.c        ****   }
- 118:main.c        ****   bport[0] = 0x00;
- 308               		.stabn	68,0,119,.LM25-.LFBB3
- 309               	.LM25:
- 310 011a 1092 0000 		sts bport,__zero_reg__
- 119:main.c        ****   cport[0] = 0x00;
- 311               		.stabn	68,0,120,.LM26-.LFBB3
- 312               	.LM26:
- 313 011e 1092 0000 		sts cport,__zero_reg__
- 120:main.c        ****   dport[0] = 0x00;
- 314               		.stabn	68,0,121,.LM27-.LFBB3
- 315               	.LM27:
- 316 0122 1092 0000 		sts dport,__zero_reg__
- 121:main.c        ****   
- 122:main.c        ****   // Initlize Servos
- 123:main.c        ****   
- 124:main.c        ****   // This is the servo add byte, when you & this value with a port byte it will
- 125:main.c        ****   // add the 'servo off' bit to the port
- 126:main.c        ****   // It turns the 1 to a 0 for a byte in the array
- 127:main.c        ****   servo_add [0]  = !(1<<0);
- 317               		.stabn	68,0,128,.LM28-.LFBB3
- 318               	.LM28:
- 319 0126 1092 0000 		sts servo_add,__zero_reg__
- 128:main.c        ****   servo_add [1]  = !(1<<1);
- 320               		.stabn	68,0,129,.LM29-.LFBB3
- 321               	.LM29:
- 322 012a 1092 0000 		sts servo_add+1,__zero_reg__
- 129:main.c        ****   servo_add [2]  = !(1<<2);
- 323               		.stabn	68,0,130,.LM30-.LFBB3
-GAS LISTING /tmp/cciIBnDz.s 			page 9
+ 115:main.c        ****     bport[i] = 0xFF;
+ 277               		.stabn	68,0,116,.LM21-.LFBB3
+ 278               	.LM21:
+ 279 00ee AFEF      		ldi r26,lo8(-1)
+ 280               	.L12:
+ 281 00f0 20E0      		ldi r18,lo8(bport)
+GAS LISTING /tmp/ccsCfOa3.s 			page 8
 
 
- 324               	.LM30:
- 325 012e 1092 0000 		sts servo_add+2,__zero_reg__
- 130:main.c        ****   servo_add [3]  = !(1<<3);
- 326               		.stabn	68,0,131,.LM31-.LFBB3
- 327               	.LM31:
- 328 0132 1092 0000 		sts servo_add+3,__zero_reg__
- 131:main.c        ****   servo_add [4]  = !(1<<4);
- 329               		.stabn	68,0,132,.LM32-.LFBB3
- 330               	.LM32:
- 331 0136 1092 0000 		sts servo_add+4,__zero_reg__
- 132:main.c        ****   servo_add [5]  = !(1<<5);
- 332               		.stabn	68,0,133,.LM33-.LFBB3
- 333               	.LM33:
- 334 013a 1092 0000 		sts servo_add+5,__zero_reg__
- 133:main.c        ****   servo_add [6]  = !(1<<0);
- 335               		.stabn	68,0,134,.LM34-.LFBB3
- 336               	.LM34:
- 337 013e 1092 0000 		sts servo_add+6,__zero_reg__
- 134:main.c        ****   servo_add [7]  = !(1<<1);
- 338               		.stabn	68,0,135,.LM35-.LFBB3
- 339               	.LM35:
- 340 0142 1092 0000 		sts servo_add+7,__zero_reg__
- 135:main.c        ****   servo_add [8]  = !(1<<2);
- 341               		.stabn	68,0,136,.LM36-.LFBB3
- 342               	.LM36:
- 343 0146 1092 0000 		sts servo_add+8,__zero_reg__
- 136:main.c        ****   servo_add [9]  = !(1<<3);
- 344               		.stabn	68,0,137,.LM37-.LFBB3
- 345               	.LM37:
- 346 014a 1092 0000 		sts servo_add+9,__zero_reg__
- 137:main.c        ****   servo_add [10] = !(1<<4);
- 347               		.stabn	68,0,138,.LM38-.LFBB3
- 348               	.LM38:
- 349 014e 1092 0000 		sts servo_add+10,__zero_reg__
- 138:main.c        ****   servo_add [11] = !(1<<5);
- 350               		.stabn	68,0,139,.LM39-.LFBB3
- 351               	.LM39:
- 352 0152 1092 0000 		sts servo_add+11,__zero_reg__
- 139:main.c        ****   servo_add [12] = !(1<<2);
- 353               		.stabn	68,0,140,.LM40-.LFBB3
- 354               	.LM40:
- 355 0156 1092 0000 		sts servo_add+12,__zero_reg__
- 140:main.c        ****   servo_add [13] = !(1<<3);
- 356               		.stabn	68,0,141,.LM41-.LFBB3
- 357               	.LM41:
- 358 015a 1092 0000 		sts servo_add+13,__zero_reg__
- 141:main.c        ****   servo_add [14] = !(1<<4);
- 359               		.stabn	68,0,142,.LM42-.LFBB3
- 360               	.LM42:
- 361 015e 1092 0000 		sts servo_add+14,__zero_reg__
- 142:main.c        ****   servo_add [15] = !(1<<5);
- 362               		.stabn	68,0,143,.LM43-.LFBB3
- 363               	.LM43:
- 364 0162 1092 0000 		sts servo_add+15,__zero_reg__
- 143:main.c        ****   servo_add [16] = !(1<<6);
- 365               		.stabn	68,0,144,.LM44-.LFBB3
- 366               	.LM44:
-GAS LISTING /tmp/cciIBnDz.s 			page 10
+ 282 00f2 30E0      		ldi r19,hi8(bport)
+ 283 00f4 FC01      		movw r30,r24
+ 284 00f6 E20F      		add r30,r18
+ 285 00f8 F31F      		adc r31,r19
+ 286 00fa A083      		st Z,r26
+ 116:main.c        ****     cport[i] = 0xFF;
+ 287               		.stabn	68,0,117,.LM22-.LFBB3
+ 288               	.LM22:
+ 289 00fc 40E0      		ldi r20,lo8(cport)
+ 290 00fe 50E0      		ldi r21,hi8(cport)
+ 291 0100 FC01      		movw r30,r24
+ 292 0102 E40F      		add r30,r20
+ 293 0104 F51F      		adc r31,r21
+ 294 0106 A083      		st Z,r26
+ 117:main.c        ****     dport[i] = 0xFF;
+ 295               		.stabn	68,0,118,.LM23-.LFBB3
+ 296               	.LM23:
+ 297 0108 60E0      		ldi r22,lo8(dport)
+ 298 010a 70E0      		ldi r23,hi8(dport)
+ 299 010c FC01      		movw r30,r24
+ 300 010e E60F      		add r30,r22
+ 301 0110 F71F      		adc r31,r23
+ 302 0112 A083      		st Z,r26
+ 115:main.c        ****   for (i = 0 ; i < 256; i++) {
+ 303               		.stabn	68,0,115,.LM24-.LFBB3
+ 304               	.LM24:
+ 305 0114 0196      		adiw r24,1
+ 306 0116 B1E0      		ldi r27,hi8(256)
+ 307 0118 8030      		cpi r24,lo8(256)
+ 308 011a 9B07      		cpc r25,r27
+ 309 011c 01F4      		brne .L12
+ 118:main.c        ****   }
+ 119:main.c        ****   bport[127] = 0x00;
+ 310               		.stabn	68,0,120,.LM25-.LFBB3
+ 311               	.LM25:
+ 312 011e 1092 0000 		sts bport+127,__zero_reg__
+ 120:main.c        ****   cport[127] = 0x00;
+ 313               		.stabn	68,0,121,.LM26-.LFBB3
+ 314               	.LM26:
+ 315 0122 1092 0000 		sts cport+127,__zero_reg__
+ 121:main.c        ****   dport[127] = 0x00;
+ 316               		.stabn	68,0,122,.LM27-.LFBB3
+ 317               	.LM27:
+ 318 0126 1092 0000 		sts dport+127,__zero_reg__
+ 122:main.c        ****   
+ 123:main.c        ****   // Initlize Servos
+ 124:main.c        ****   
+ 125:main.c        ****   // This is the servo add byte, when you & this value with a port byte it will
+ 126:main.c        ****   // add the 'servo off' bit to the port
+ 127:main.c        ****   // It turns the 1 to a 0 for a byte in the array
+ 128:main.c        ****   servo_add [0]  = !(1<<0);
+ 319               		.stabn	68,0,129,.LM28-.LFBB3
+ 320               	.LM28:
+ 321 012a 1092 0000 		sts servo_add,__zero_reg__
+ 129:main.c        ****   servo_add [1]  = !(1<<1);
+ 322               		.stabn	68,0,130,.LM29-.LFBB3
+ 323               	.LM29:
+GAS LISTING /tmp/ccsCfOa3.s 			page 9
 
 
- 367 0166 1092 0000 		sts servo_add+16,__zero_reg__
- 144:main.c        ****   servo_add [17] = !(1<<7);
- 368               		.stabn	68,0,145,.LM45-.LFBB3
- 369               	.LM45:
- 370 016a 1092 0000 		sts servo_add+17,__zero_reg__
- 145:main.c        ****   
+ 324 012e 1092 0000 		sts servo_add+1,__zero_reg__
+ 130:main.c        ****   servo_add [2]  = !(1<<2);
+ 325               		.stabn	68,0,131,.LM30-.LFBB3
+ 326               	.LM30:
+ 327 0132 1092 0000 		sts servo_add+2,__zero_reg__
+ 131:main.c        ****   servo_add [3]  = !(1<<3);
+ 328               		.stabn	68,0,132,.LM31-.LFBB3
+ 329               	.LM31:
+ 330 0136 1092 0000 		sts servo_add+3,__zero_reg__
+ 132:main.c        ****   servo_add [4]  = !(1<<4);
+ 331               		.stabn	68,0,133,.LM32-.LFBB3
+ 332               	.LM32:
+ 333 013a 1092 0000 		sts servo_add+4,__zero_reg__
+ 133:main.c        ****   servo_add [5]  = !(1<<5);
+ 334               		.stabn	68,0,134,.LM33-.LFBB3
+ 335               	.LM33:
+ 336 013e 1092 0000 		sts servo_add+5,__zero_reg__
+ 134:main.c        ****   servo_add [6]  = !(1<<0);
+ 337               		.stabn	68,0,135,.LM34-.LFBB3
+ 338               	.LM34:
+ 339 0142 1092 0000 		sts servo_add+6,__zero_reg__
+ 135:main.c        ****   servo_add [7]  = !(1<<1);
+ 340               		.stabn	68,0,136,.LM35-.LFBB3
+ 341               	.LM35:
+ 342 0146 1092 0000 		sts servo_add+7,__zero_reg__
+ 136:main.c        ****   servo_add [8]  = !(1<<2);
+ 343               		.stabn	68,0,137,.LM36-.LFBB3
+ 344               	.LM36:
+ 345 014a 1092 0000 		sts servo_add+8,__zero_reg__
+ 137:main.c        ****   servo_add [9]  = !(1<<3);
+ 346               		.stabn	68,0,138,.LM37-.LFBB3
+ 347               	.LM37:
+ 348 014e 1092 0000 		sts servo_add+9,__zero_reg__
+ 138:main.c        ****   servo_add [10] = !(1<<4);
+ 349               		.stabn	68,0,139,.LM38-.LFBB3
+ 350               	.LM38:
+ 351 0152 1092 0000 		sts servo_add+10,__zero_reg__
+ 139:main.c        ****   servo_add [11] = !(1<<5);
+ 352               		.stabn	68,0,140,.LM39-.LFBB3
+ 353               	.LM39:
+ 354 0156 1092 0000 		sts servo_add+11,__zero_reg__
+ 140:main.c        ****   servo_add [12] = !(1<<2);
+ 355               		.stabn	68,0,141,.LM40-.LFBB3
+ 356               	.LM40:
+ 357 015a 1092 0000 		sts servo_add+12,__zero_reg__
+ 141:main.c        ****   servo_add [13] = !(1<<3);
+ 358               		.stabn	68,0,142,.LM41-.LFBB3
+ 359               	.LM41:
+ 360 015e 1092 0000 		sts servo_add+13,__zero_reg__
+ 142:main.c        ****   servo_add [14] = !(1<<4);
+ 361               		.stabn	68,0,143,.LM42-.LFBB3
+ 362               	.LM42:
+ 363 0162 1092 0000 		sts servo_add+14,__zero_reg__
+ 143:main.c        ****   servo_add [15] = !(1<<5);
+ 364               		.stabn	68,0,144,.LM43-.LFBB3
+ 365               	.LM43:
+ 366 0166 1092 0000 		sts servo_add+15,__zero_reg__
+GAS LISTING /tmp/ccsCfOa3.s 			page 10
+
+
+ 144:main.c        ****   servo_add [16] = !(1<<6);
+ 367               		.stabn	68,0,145,.LM44-.LFBB3
+ 368               	.LM44:
+ 369 016a 1092 0000 		sts servo_add+16,__zero_reg__
+ 145:main.c        ****   servo_add [17] = !(1<<7);
+ 370               		.stabn	68,0,146,.LM45-.LFBB3
+ 371               	.LM45:
+ 372 016e 1092 0000 		sts servo_add+17,__zero_reg__
  146:main.c        ****   
- 147:main.c        ****   // This is the port that the servo is on. It is represented by a character pointer
- 148:main.c        ****   // which happens to be the same as the array and can be use the same way
- 149:main.c        ****   servo_port [0]  = bport;
- 371               		.stabn	68,0,150,.LM46-.LFBB3
- 372               	.LM46:
- 373 016e 3093 0000 		sts (servo_port)+1,r19
- 374 0172 2093 0000 		sts servo_port,r18
- 150:main.c        ****   servo_port [1]  = bport;
- 375               		.stabn	68,0,151,.LM47-.LFBB3
- 376               	.LM47:
- 377 0176 3093 0000 		sts (servo_port+2)+1,r19
- 378 017a 2093 0000 		sts servo_port+2,r18
- 151:main.c        ****   servo_port [2]  = bport;
- 379               		.stabn	68,0,152,.LM48-.LFBB3
- 380               	.LM48:
- 381 017e 3093 0000 		sts (servo_port+4)+1,r19
- 382 0182 2093 0000 		sts servo_port+4,r18
- 152:main.c        ****   servo_port [3]  = bport;
- 383               		.stabn	68,0,153,.LM49-.LFBB3
- 384               	.LM49:
- 385 0186 3093 0000 		sts (servo_port+6)+1,r19
- 386 018a 2093 0000 		sts servo_port+6,r18
- 153:main.c        ****   servo_port [4]  = bport;
- 387               		.stabn	68,0,154,.LM50-.LFBB3
- 388               	.LM50:
- 389 018e 3093 0000 		sts (servo_port+8)+1,r19
- 390 0192 2093 0000 		sts servo_port+8,r18
- 154:main.c        ****   servo_port [5]  = bport;
- 391               		.stabn	68,0,155,.LM51-.LFBB3
- 392               	.LM51:
- 393 0196 3093 0000 		sts (servo_port+10)+1,r19
- 394 019a 2093 0000 		sts servo_port+10,r18
- 155:main.c        ****   servo_port [6]  = cport;
- 395               		.stabn	68,0,156,.LM52-.LFBB3
- 396               	.LM52:
- 397 019e 5093 0000 		sts (servo_port+12)+1,r21
- 398 01a2 4093 0000 		sts servo_port+12,r20
- 156:main.c        ****   servo_port [7]  = cport;
- 399               		.stabn	68,0,157,.LM53-.LFBB3
- 400               	.LM53:
- 401 01a6 5093 0000 		sts (servo_port+14)+1,r21
- 402 01aa 4093 0000 		sts servo_port+14,r20
- 157:main.c        ****   servo_port [8]  = cport;
- 403               		.stabn	68,0,158,.LM54-.LFBB3
- 404               	.LM54:
- 405 01ae 5093 0000 		sts (servo_port+16)+1,r21
- 406 01b2 4093 0000 		sts servo_port+16,r20
- 158:main.c        ****   servo_port [9]  = cport;
- 407               		.stabn	68,0,159,.LM55-.LFBB3
- 408               	.LM55:
-GAS LISTING /tmp/cciIBnDz.s 			page 11
+ 147:main.c        ****   
+ 148:main.c        ****   // This is the port that the servo is on. It is represented by a character pointer
+ 149:main.c        ****   // which happens to be the same as the array and can be use the same way
+ 150:main.c        ****   servo_port [0]  = bport;
+ 373               		.stabn	68,0,151,.LM46-.LFBB3
+ 374               	.LM46:
+ 375 0172 3093 0000 		sts (servo_port)+1,r19
+ 376 0176 2093 0000 		sts servo_port,r18
+ 151:main.c        ****   servo_port [1]  = bport;
+ 377               		.stabn	68,0,152,.LM47-.LFBB3
+ 378               	.LM47:
+ 379 017a 3093 0000 		sts (servo_port+2)+1,r19
+ 380 017e 2093 0000 		sts servo_port+2,r18
+ 152:main.c        ****   servo_port [2]  = bport;
+ 381               		.stabn	68,0,153,.LM48-.LFBB3
+ 382               	.LM48:
+ 383 0182 3093 0000 		sts (servo_port+4)+1,r19
+ 384 0186 2093 0000 		sts servo_port+4,r18
+ 153:main.c        ****   servo_port [3]  = bport;
+ 385               		.stabn	68,0,154,.LM49-.LFBB3
+ 386               	.LM49:
+ 387 018a 3093 0000 		sts (servo_port+6)+1,r19
+ 388 018e 2093 0000 		sts servo_port+6,r18
+ 154:main.c        ****   servo_port [4]  = bport;
+ 389               		.stabn	68,0,155,.LM50-.LFBB3
+ 390               	.LM50:
+ 391 0192 3093 0000 		sts (servo_port+8)+1,r19
+ 392 0196 2093 0000 		sts servo_port+8,r18
+ 155:main.c        ****   servo_port [5]  = bport;
+ 393               		.stabn	68,0,156,.LM51-.LFBB3
+ 394               	.LM51:
+ 395 019a 3093 0000 		sts (servo_port+10)+1,r19
+ 396 019e 2093 0000 		sts servo_port+10,r18
+ 156:main.c        ****   servo_port [6]  = cport;
+ 397               		.stabn	68,0,157,.LM52-.LFBB3
+ 398               	.LM52:
+ 399 01a2 5093 0000 		sts (servo_port+12)+1,r21
+ 400 01a6 4093 0000 		sts servo_port+12,r20
+ 157:main.c        ****   servo_port [7]  = cport;
+ 401               		.stabn	68,0,158,.LM53-.LFBB3
+ 402               	.LM53:
+ 403 01aa 5093 0000 		sts (servo_port+14)+1,r21
+ 404 01ae 4093 0000 		sts servo_port+14,r20
+ 158:main.c        ****   servo_port [8]  = cport;
+ 405               		.stabn	68,0,159,.LM54-.LFBB3
+ 406               	.LM54:
+ 407 01b2 5093 0000 		sts (servo_port+16)+1,r21
+ 408 01b6 4093 0000 		sts servo_port+16,r20
+GAS LISTING /tmp/ccsCfOa3.s 			page 11
 
 
- 409 01b6 5093 0000 		sts (servo_port+18)+1,r21
- 410 01ba 4093 0000 		sts servo_port+18,r20
- 159:main.c        ****   servo_port [10] = cport;
- 411               		.stabn	68,0,160,.LM56-.LFBB3
- 412               	.LM56:
- 413 01be 5093 0000 		sts (servo_port+20)+1,r21
- 414 01c2 4093 0000 		sts servo_port+20,r20
- 160:main.c        ****   servo_port [11] = cport;
- 415               		.stabn	68,0,161,.LM57-.LFBB3
- 416               	.LM57:
- 417 01c6 5093 0000 		sts (servo_port+22)+1,r21
- 418 01ca 4093 0000 		sts servo_port+22,r20
- 161:main.c        ****   servo_port [12] = dport;
- 419               		.stabn	68,0,162,.LM58-.LFBB3
- 420               	.LM58:
- 421 01ce 7093 0000 		sts (servo_port+24)+1,r23
- 422 01d2 6093 0000 		sts servo_port+24,r22
- 162:main.c        ****   servo_port [13] = dport;
- 423               		.stabn	68,0,163,.LM59-.LFBB3
- 424               	.LM59:
- 425 01d6 7093 0000 		sts (servo_port+26)+1,r23
- 426 01da 6093 0000 		sts servo_port+26,r22
- 163:main.c        ****   servo_port [14] = dport;
- 427               		.stabn	68,0,164,.LM60-.LFBB3
- 428               	.LM60:
- 429 01de 7093 0000 		sts (servo_port+28)+1,r23
- 430 01e2 6093 0000 		sts servo_port+28,r22
- 164:main.c        ****   servo_port [15] = dport;
- 431               		.stabn	68,0,165,.LM61-.LFBB3
- 432               	.LM61:
- 433 01e6 7093 0000 		sts (servo_port+30)+1,r23
- 434 01ea 6093 0000 		sts servo_port+30,r22
- 165:main.c        ****   servo_port [16] = dport;
- 435               		.stabn	68,0,166,.LM62-.LFBB3
- 436               	.LM62:
- 437 01ee 7093 0000 		sts (servo_port+32)+1,r23
- 438 01f2 6093 0000 		sts servo_port+32,r22
- 166:main.c        ****   servo_port [17] = dport;  
- 439               		.stabn	68,0,167,.LM63-.LFBB3
- 440               	.LM63:
- 441 01f6 7093 0000 		sts (servo_port+34)+1,r23
- 442 01fa 6093 0000 		sts servo_port+34,r22
- 443 01fe 80E0      		ldi r24,lo8(0)
- 444 0200 90E0      		ldi r25,hi8(0)
- 445               	.L13:
- 167:main.c        ****   
- 168:main.c        ****   // set the initial positions
- 169:main.c        ****   for (i = 0; i < 256; i ++) {
- 170:main.c        ****     servo_pos [i]  = 0;
- 446               		.stabn	68,0,171,.LM64-.LFBB3
- 447               	.LM64:
- 448 0202 FC01      		movw r30,r24
- 449 0204 EE0F      		lsl r30
- 450 0206 FF1F      		rol r31
- 451 0208 E050      		subi r30,lo8(-(servo_pos))
- 452 020a F040      		sbci r31,hi8(-(servo_pos))
- 453 020c 1182      		std Z+1,__zero_reg__
-GAS LISTING /tmp/cciIBnDz.s 			page 12
+ 159:main.c        ****   servo_port [9]  = cport;
+ 409               		.stabn	68,0,160,.LM55-.LFBB3
+ 410               	.LM55:
+ 411 01ba 5093 0000 		sts (servo_port+18)+1,r21
+ 412 01be 4093 0000 		sts servo_port+18,r20
+ 160:main.c        ****   servo_port [10] = cport;
+ 413               		.stabn	68,0,161,.LM56-.LFBB3
+ 414               	.LM56:
+ 415 01c2 5093 0000 		sts (servo_port+20)+1,r21
+ 416 01c6 4093 0000 		sts servo_port+20,r20
+ 161:main.c        ****   servo_port [11] = cport;
+ 417               		.stabn	68,0,162,.LM57-.LFBB3
+ 418               	.LM57:
+ 419 01ca 5093 0000 		sts (servo_port+22)+1,r21
+ 420 01ce 4093 0000 		sts servo_port+22,r20
+ 162:main.c        ****   servo_port [12] = dport;
+ 421               		.stabn	68,0,163,.LM58-.LFBB3
+ 422               	.LM58:
+ 423 01d2 7093 0000 		sts (servo_port+24)+1,r23
+ 424 01d6 6093 0000 		sts servo_port+24,r22
+ 163:main.c        ****   servo_port [13] = dport;
+ 425               		.stabn	68,0,164,.LM59-.LFBB3
+ 426               	.LM59:
+ 427 01da 7093 0000 		sts (servo_port+26)+1,r23
+ 428 01de 6093 0000 		sts servo_port+26,r22
+ 164:main.c        ****   servo_port [14] = dport;
+ 429               		.stabn	68,0,165,.LM60-.LFBB3
+ 430               	.LM60:
+ 431 01e2 7093 0000 		sts (servo_port+28)+1,r23
+ 432 01e6 6093 0000 		sts servo_port+28,r22
+ 165:main.c        ****   servo_port [15] = dport;
+ 433               		.stabn	68,0,166,.LM61-.LFBB3
+ 434               	.LM61:
+ 435 01ea 7093 0000 		sts (servo_port+30)+1,r23
+ 436 01ee 6093 0000 		sts servo_port+30,r22
+ 166:main.c        ****   servo_port [16] = dport;
+ 437               		.stabn	68,0,167,.LM62-.LFBB3
+ 438               	.LM62:
+ 439 01f2 7093 0000 		sts (servo_port+32)+1,r23
+ 440 01f6 6093 0000 		sts servo_port+32,r22
+ 167:main.c        ****   servo_port [17] = dport;  
+ 441               		.stabn	68,0,168,.LM63-.LFBB3
+ 442               	.LM63:
+ 443 01fa 7093 0000 		sts (servo_port+34)+1,r23
+ 444 01fe 6093 0000 		sts servo_port+34,r22
+ 445 0202 80E0      		ldi r24,lo8(0)
+ 446 0204 90E0      		ldi r25,hi8(0)
+ 447               	.L13:
+ 168:main.c        ****   
+ 169:main.c        ****   // set the initial positions
+ 170:main.c        ****   for (i = 0; i < 256; i ++) {
+ 171:main.c        ****     servo_pos [i]  = 0;
+ 448               		.stabn	68,0,172,.LM64-.LFBB3
+ 449               	.LM64:
+ 450 0206 FC01      		movw r30,r24
+ 451 0208 EE0F      		lsl r30
+ 452 020a FF1F      		rol r31
+GAS LISTING /tmp/ccsCfOa3.s 			page 12
 
 
- 454 020e 1082      		st Z,__zero_reg__
- 170:main.c        ****     servo_pos [i]  = 0;
- 455               		.stabn	68,0,170,.LM65-.LFBB3
- 456               	.LM65:
- 457 0210 0196      		adiw r24,1
- 458 0212 E1E0      		ldi r30,hi8(256)
- 459 0214 8030      		cpi r24,lo8(256)
- 460 0216 9E07      		cpc r25,r30
- 461 0218 01F4      		brne .L13
- 462 021a 20E0      		ldi r18,lo8(0)
- 463 021c 30E0      		ldi r19,hi8(0)
- 464               	.L15:
- 171:main.c        ****   }
- 172:main.c        ****   
- 173:main.c        ****   //set the subtract bytes
- 174:main.c        ****   for (i = 0; i < 256; i ++) {
- 175:main.c        ****     servo_sub[0] = !servo_add[0];
- 465               		.stabn	68,0,176,.LM66-.LFBB3
- 466               	.LM66:
- 467 021e 8091 0000 		lds r24,servo_add
- 468 0222 90E0      		ldi r25,lo8(0)
- 469 0224 8823      		tst r24
- 470 0226 01F4      		brne .L14
- 471 0228 91E0      		ldi r25,lo8(1)
- 472               	.L14:
- 473 022a 9093 0000 		sts servo_sub,r25
- 175:main.c        ****     servo_sub[0] = !servo_add[0];
- 474               		.stabn	68,0,175,.LM67-.LFBB3
- 475               	.LM67:
- 476 022e 2F5F      		subi r18,lo8(-(1))
- 477 0230 3F4F      		sbci r19,hi8(-(1))
- 478 0232 F1E0      		ldi r31,hi8(256)
- 479 0234 2030      		cpi r18,lo8(256)
- 480 0236 3F07      		cpc r19,r31
- 481 0238 01F4      		brne .L15
- 482               	.LBB6:
- 483               	.LBB7:
- 176:main.c        ****   }
- 177:main.c        ****   // USART INITILIZATION
- 178:main.c        ****   USART_Init();
- 179:main.c        ****   
- 180:main.c        ****   //INTERRUPT INITILAIZATION
- 181:main.c        ****   sei ();       // enable global interrupts
- 182:main.c        ****   TIMSK1 |= (1<<OCIE1A);
- 183:main.c        ****   
- 184:main.c        ****   //begin timer
- 185:main.c        ****   TCCR1B |= (1<<CS11);
- 186:main.c        ****   
- 187:main.c        ****   //MAIN LOOP
- 188:main.c        ****   while (1) {
- 189:main.c        ****     char servnum = 0xFF; // bit one is the servo number byte (leading 0)
- 190:main.c        ****     char servpos; // byte two is the new position (leading 1)
- 191:main.c        ****     while (servnum&0x80) {
- 192:main.c        ****       while ( !(UCSR0A & (1<<RXC0))); // Wait for input
- 193:main.c        ****       servnum = UDR0;
- 194:main.c        ****     }
- 195:main.c        ****     while ( !(UCSR0A & (1<<RXC0))); // Wait for input for position
-GAS LISTING /tmp/cciIBnDz.s 			page 13
-
-
- 196:main.c        ****     servpos = UDR0;
- 197:main.c        ****     // Error check
- 198:main.c        ****     if (!(servpos & 0x80)) {
- 199:main.c        ****       continue;
- 200:main.c        ****     }
- 201:main.c        ****     // Parse input
- 202:main.c        ****     servpos = (servpos & ((servnum & 0x40) << 1));
- 203:main.c        ****     servnum = servnum & 0x1F;
- 204:main.c        ****     servnum = servnum - 1; // the first servo is servo 
- 205:main.c        ****     // Analize input
- 206:main.c        ****     
- 207:main.c        ****     servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
- 208:main.c        ****     servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
- 209:main.c        ****   }
- 210:main.c        **** }
- 211:main.c        **** 
- 212:main.c        **** /******************************** USART CONFIG ********************************\
- 213:main.c        **** | USART_Init(void) initilizes the USART feature, this function needs to be run |
- 214:main.c        **** | before any USART functions are used, this function configures the BAUD rate  |
- 215:main.c        **** | for the USART and enables the format for transmission                        |
- 216:main.c        **** \******************************************************************************/
- 217:main.c        **** #define FOSC 8000000 // Clock Speed of the procesor
- 218:main.c        **** #define BAUD 19200    // Baud rate (to change the BAUD rate change this variable
- 219:main.c        **** #define MYUBRR FOSC/16/BAUD-1 // calculate the number the processor needs
- 220:main.c        **** void USART_Init(void) {
- 221:main.c        ****   unsigned int ubrr = MYUBRR;
- 222:main.c        ****   /*Set baud rate */
- 223:main.c        ****   UBRR0H = (unsigned char)(ubrr>>8);
- 484               		.stabn	68,0,224,.LM68-.LFBB3
- 485               	.LM68:
- 486 023a 1092 C500 		sts 197,__zero_reg__
- 224:main.c        ****   UBRR0L = (unsigned char)ubrr;
- 487               		.stabn	68,0,225,.LM69-.LFBB3
- 488               	.LM69:
- 489 023e 89E1      		ldi r24,lo8(25)
- 490 0240 8093 C400 		sts 196,r24
- 225:main.c        ****   /*Enable receiver and transmitter */
- 226:main.c        ****   UCSR0B = (1<<RXEN0)|(1<<TXEN0);
- 491               		.stabn	68,0,227,.LM70-.LFBB3
- 492               	.LM70:
- 493 0244 88E1      		ldi r24,lo8(24)
- 494 0246 8093 C100 		sts 193,r24
- 227:main.c        ****   /* Set frame format: 8data, 2stop bit */
- 228:main.c        ****   UCSR0C = (1<<USBS0)|(3<<UCSZ00);
- 495               		.stabn	68,0,229,.LM71-.LFBB3
- 496               	.LM71:
- 497 024a 8EE0      		ldi r24,lo8(14)
- 498 024c 8093 C200 		sts 194,r24
- 499               	.LBE7:
- 500               	.LBE6:
+ 453 020c E050      		subi r30,lo8(-(servo_pos))
+ 454 020e F040      		sbci r31,hi8(-(servo_pos))
+ 455 0210 1182      		std Z+1,__zero_reg__
+ 456 0212 1082      		st Z,__zero_reg__
+ 171:main.c        ****     servo_pos [i]  = 0;
+ 457               		.stabn	68,0,171,.LM65-.LFBB3
+ 458               	.LM65:
+ 459 0214 0196      		adiw r24,1
+ 460 0216 E1E0      		ldi r30,hi8(256)
+ 461 0218 8030      		cpi r24,lo8(256)
+ 462 021a 9E07      		cpc r25,r30
+ 463 021c 01F4      		brne .L13
+ 464 021e 20E0      		ldi r18,lo8(0)
+ 465 0220 30E0      		ldi r19,hi8(0)
+ 466               	.L15:
+ 172:main.c        ****   }
+ 173:main.c        ****   
+ 174:main.c        ****   //set the subtract bytes
+ 175:main.c        ****   for (i = 0; i < 256; i ++) {
+ 176:main.c        ****     servo_sub[0] = !servo_add[0];
+ 467               		.stabn	68,0,177,.LM66-.LFBB3
+ 468               	.LM66:
+ 469 0222 8091 0000 		lds r24,servo_add
+ 470 0226 90E0      		ldi r25,lo8(0)
+ 471 0228 8823      		tst r24
+ 472 022a 01F4      		brne .L14
+ 473 022c 91E0      		ldi r25,lo8(1)
+ 474               	.L14:
+ 475 022e 9093 0000 		sts servo_sub,r25
+ 176:main.c        ****     servo_sub[0] = !servo_add[0];
+ 476               		.stabn	68,0,176,.LM67-.LFBB3
+ 477               	.LM67:
+ 478 0232 2F5F      		subi r18,lo8(-(1))
+ 479 0234 3F4F      		sbci r19,hi8(-(1))
+ 480 0236 F1E0      		ldi r31,hi8(256)
+ 481 0238 2030      		cpi r18,lo8(256)
+ 482 023a 3F07      		cpc r19,r31
+ 483 023c 01F4      		brne .L15
+ 484               	.LBB6:
+ 485               	.LBB7:
+ 177:main.c        ****   }
+ 178:main.c        ****   // USART INITILIZATION
+ 179:main.c        ****   USART_Init();
+ 180:main.c        ****   
+ 181:main.c        ****   //INTERRUPT INITILAIZATION
  182:main.c        ****   sei ();       // enable global interrupts
- 501               		.stabn	68,0,182,.LM72-.LFBB3
- 502               	.LM72:
- 503               	/* #APP */
- 504               	 ;  182 "main.c" 1
- 505 0250 7894      		sei
- 506               	 ;  0 "" 2
-GAS LISTING /tmp/cciIBnDz.s 			page 14
-
-
  183:main.c        ****   TIMSK1 |= (1<<OCIE1A);
- 507               		.stabn	68,0,183,.LM73-.LFBB3
- 508               	.LM73:
- 509               	/* #NOAPP */
- 510 0252 8091 6F00 		lds r24,111
- 511 0256 8260      		ori r24,lo8(2)
- 512 0258 8093 6F00 		sts 111,r24
+ 184:main.c        ****   
+ 185:main.c        ****   //begin timer
  186:main.c        ****   TCCR1B |= (1<<CS11);
- 513               		.stabn	68,0,186,.LM74-.LFBB3
- 514               	.LM74:
- 515 025c 8091 8100 		lds r24,129
- 516 0260 8260      		ori r24,lo8(2)
- 517 0262 8093 8100 		sts 129,r24
- 518 0266 7FEF      		ldi r23,lo8(-1)
- 519 0268 00C0      		rjmp .L28
- 520               	.L21:
- 521               	.LBB8:
- 193:main.c        ****       while ( !(UCSR0A & (1<<RXC0))); // Wait for input
- 522               		.stabn	68,0,193,.LM75-.LFBB3
- 523               	.LM75:
- 524 026a 8091 C000 		lds r24,192
- 525 026e 87FF      		sbrs r24,7
- 526 0270 00C0      		rjmp .L21
- 194:main.c        ****       servnum = UDR0;
- 527               		.stabn	68,0,194,.LM76-.LFBB3
- 528               	.LM76:
- 529 0272 7091 C600 		lds r23,198
- 530               	.L28:
+ 187:main.c        ****   
+ 188:main.c        ****   //MAIN LOOP
+ 189:main.c        ****   while (1) {
+ 190:main.c        ****     char servnum = 0xFF; // bit one is the servo number byte (leading 0)
+ 191:main.c        ****     char servpos; // byte two is the new position (leading 1)
  192:main.c        ****     while (servnum&0x80) {
- 531               		.stabn	68,0,192,.LM77-.LFBB3
- 532               	.LM77:
- 533 0276 77FD      		sbrc r23,7
- 534 0278 00C0      		rjmp .L21
- 535               	.L22:
+ 193:main.c        ****       while ( !(UCSR0A & (1<<RXC0))); // Wait for input
+GAS LISTING /tmp/ccsCfOa3.s 			page 13
+
+
+ 194:main.c        ****       servnum = UDR0;
+ 195:main.c        ****     }
  196:main.c        ****     while ( !(UCSR0A & (1<<RXC0))); // Wait for input for position
- 536               		.stabn	68,0,196,.LM78-.LFBB3
- 537               	.LM78:
- 538 027a 8091 C000 		lds r24,192
- 539 027e 87FF      		sbrs r24,7
- 540 0280 00C0      		rjmp .L22
  197:main.c        ****     servpos = UDR0;
- 541               		.stabn	68,0,197,.LM79-.LFBB3
- 542               	.LM79:
- 543 0282 6091 C600 		lds r22,198
+ 198:main.c        ****     // Error check
  199:main.c        ****     if (!(servpos & 0x80)) {
- 544               		.stabn	68,0,199,.LM80-.LFBB3
- 545               	.LM80:
- 546 0286 6623      		tst r22
- 547 0288 04F4      		brge .L21
+ 200:main.c        ****       continue;
+ 201:main.c        ****     }
+ 202:main.c        ****     // Parse input
+ 203:main.c        ****     servpos = (servpos & ((servnum & 0x40) << 1));
  204:main.c        ****     servnum = servnum & 0x1F;
- 548               		.stabn	68,0,204,.LM81-.LFBB3
- 549               	.LM81:
- 550 028a 272F      		mov r18,r23
- 551 028c 2F71      		andi r18,lo8(31)
+ 205:main.c        ****     servnum = servnum - 1; // the first servo is servo 
+ 206:main.c        ****     // Analize input
+ 207:main.c        ****     
  208:main.c        ****     servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
- 552               		.stabn	68,0,208,.LM82-.LFBB3
- 553               	.LM82:
-GAS LISTING /tmp/cciIBnDz.s 			page 15
-
-
- 554 028e 2150      		subi r18,lo8(-(-1))
- 555 0290 30E0      		ldi r19,lo8(0)
- 556 0292 A901      		movw r20,r18
- 557 0294 440F      		lsl r20
- 558 0296 551F      		rol r21
- 559 0298 FA01      		movw r30,r20
- 560 029a E050      		subi r30,lo8(-(servo_pos))
- 561 029c F040      		sbci r31,hi8(-(servo_pos))
- 562 029e 8081      		ld r24,Z
- 563 02a0 9181      		ldd r25,Z+1
- 564 02a2 4050      		subi r20,lo8(-(servo_port))
- 565 02a4 5040      		sbci r21,hi8(-(servo_port))
- 566 02a6 FA01      		movw r30,r20
- 567 02a8 A081      		ld r26,Z
- 568 02aa B181      		ldd r27,Z+1
- 569 02ac A80F      		add r26,r24
- 570 02ae B91F      		adc r27,r25
- 571 02b0 8C91      		ld r24,X
- 572 02b2 F901      		movw r30,r18
- 573 02b4 E050      		subi r30,lo8(-(servo_sub))
- 574 02b6 F040      		sbci r31,hi8(-(servo_sub))
- 575 02b8 9081      		ld r25,Z
- 576 02ba 892B      		or r24,r25
- 577 02bc 8C93      		st X,r24
  209:main.c        ****     servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
- 578               		.stabn	68,0,209,.LM83-.LFBB3
- 579               	.LM83:
- 580 02be 872F      		mov r24,r23
- 581 02c0 90E0      		ldi r25,lo8(0)
- 582 02c2 8074      		andi r24,lo8(64)
- 583 02c4 9070      		andi r25,hi8(64)
- 584 02c6 880F      		lsl r24
- 585 02c8 991F      		rol r25
- 586 02ca 6823      		and r22,r24
- 587 02cc DA01      		movw r26,r20
- 588 02ce ED91      		ld r30,X+
- 589 02d0 FC91      		ld r31,X
- 590 02d2 E60F      		add r30,r22
- 591 02d4 F11D      		adc r31,__zero_reg__
- 592 02d6 8081      		ld r24,Z
- 593 02d8 2050      		subi r18,lo8(-(servo_add))
- 594 02da 3040      		sbci r19,hi8(-(servo_add))
- 595 02dc D901      		movw r26,r18
- 596 02de 9C91      		ld r25,X
- 597 02e0 8923      		and r24,r25
- 598 02e2 8083      		st Z,r24
- 599 02e4 00C0      		rjmp .L21
- 600               	.LBE8:
- 601               		.size	main, .-main
- 602               		.stabs	"i:r(0,1)",64,0,102,24
- 603               		.stabn	192,0,0,.LFBB3-.LFBB3
- 604               		.stabs	"servnum:r(0,2)",64,0,190,23
- 605               		.stabs	"servpos:r(0,2)",64,0,191,22
- 606               		.stabn	192,0,0,.LBB8-.LFBB3
- 607               		.stabn	224,0,0,.LBE8-.LFBB3
- 608               		.stabn	224,0,0,.Lscope3-.LFBB3
- 609               	.Lscope3:
-GAS LISTING /tmp/cciIBnDz.s 			page 16
-
-
- 610               		.stabs	"",36,0,0,.Lscope3-.LFBB3
- 611               		.stabd	78,0,0
- 612               		.stabs	"USART_Init:F(0,15)",36,0,221,USART_Init
- 613               	.global	USART_Init
- 614               		.type	USART_Init, @function
- 615               	USART_Init:
- 616               		.stabd	46,0,0
+ 210:main.c        ****   }
+ 211:main.c        **** }
+ 212:main.c        **** 
+ 213:main.c        **** /******************************** USART CONFIG ********************************\
+ 214:main.c        **** | USART_Init(void) initilizes the USART feature, this function needs to be run |
+ 215:main.c        **** | before any USART functions are used, this function configures the BAUD rate  |
+ 216:main.c        **** | for the USART and enables the format for transmission                        |
+ 217:main.c        **** \******************************************************************************/
+ 218:main.c        **** #define FOSC 8000000 // Clock Speed of the procesor
+ 219:main.c        **** #define BAUD 19200    // Baud rate (to change the BAUD rate change this variable
+ 220:main.c        **** #define MYUBRR FOSC/16/BAUD-1 // calculate the number the processor needs
  221:main.c        **** void USART_Init(void) {
- 617               		.stabn	68,0,221,.LM84-.LFBB4
- 618               	.LM84:
- 619               	.LFBB4:
- 620               	/* prologue: function */
- 621               	/* frame size = 0 */
+ 222:main.c        ****   unsigned int ubrr = MYUBRR;
+ 223:main.c        ****   /*Set baud rate */
  224:main.c        ****   UBRR0H = (unsigned char)(ubrr>>8);
- 622               		.stabn	68,0,224,.LM85-.LFBB4
- 623               	.LM85:
- 624 02e6 1092 C500 		sts 197,__zero_reg__
+ 486               		.stabn	68,0,225,.LM68-.LFBB3
+ 487               	.LM68:
+ 488 023e 1092 C500 		sts 197,__zero_reg__
  225:main.c        ****   UBRR0L = (unsigned char)ubrr;
- 625               		.stabn	68,0,225,.LM86-.LFBB4
- 626               	.LM86:
- 627 02ea 89E1      		ldi r24,lo8(25)
- 628 02ec 8093 C400 		sts 196,r24
+ 489               		.stabn	68,0,226,.LM69-.LFBB3
+ 490               	.LM69:
+ 491 0242 89E1      		ldi r24,lo8(25)
+ 492 0244 8093 C400 		sts 196,r24
+ 226:main.c        ****   /*Enable receiver and transmitter */
  227:main.c        ****   UCSR0B = (1<<RXEN0)|(1<<TXEN0);
- 629               		.stabn	68,0,227,.LM87-.LFBB4
- 630               	.LM87:
- 631 02f0 88E1      		ldi r24,lo8(24)
- 632 02f2 8093 C100 		sts 193,r24
- 633               		.stabn	68,0,229,.LM88-.LFBB4
- 634               	.LM88:
- 635 02f6 8EE0      		ldi r24,lo8(14)
- 636 02f8 8093 C200 		sts 194,r24
- 637               	/* epilogue start */
- 229:main.c        **** }
- 638               		.stabn	68,0,230,.LM89-.LFBB4
- 639               	.LM89:
- 640 02fc 0895      		ret
- 641               		.size	USART_Init, .-USART_Init
- 642               	.Lscope4:
- 643               		.stabs	"",36,0,0,.Lscope4-.LFBB4
- 644               		.stabd	78,0,0
- 645               		.stabs	"USART_Transmit:F(0,15)",36,0,240,USART_Transmit
- 646               		.stabs	"input:P(0,1)",64,0,239,18
- 647               	.global	USART_Transmit
- 648               		.type	USART_Transmit, @function
- 649               	USART_Transmit:
- 650               		.stabd	46,0,0
- 230:main.c        **** 
- 231:main.c        **** /******************************* USART_Transmit *******************************\
- 232:main.c        **** | The USART_Transmit(int) function allows you to send numbers to USART serial  |
- 233:main.c        **** | This function only handles numbers up to two digits. If there is one digit   |
- 234:main.c        **** | the message contains a space, then the digit converted to ascii. If there    |
- 235:main.c        **** | are two digits then the message is the first digit followed by the seccond   |
- 236:main.c        **** | If the input is negative then the function will output a newline character   |
- 237:main.c        **** \******************************************************************************/
- 238:main.c        **** void USART_Transmit( int input )
- 239:main.c        **** {
- 651               		.stabn	68,0,240,.LM90-.LFBB5
-GAS LISTING /tmp/cciIBnDz.s 			page 17
+ 493               		.stabn	68,0,228,.LM70-.LFBB3
+ 494               	.LM70:
+ 495 0248 88E1      		ldi r24,lo8(24)
+ 496 024a 8093 C100 		sts 193,r24
+ 228:main.c        ****   /* Set frame format: 8data, 2stop bit */
+ 229:main.c        ****   UCSR0C = (1<<USBS0)|(3<<UCSZ00);
+ 497               		.stabn	68,0,230,.LM71-.LFBB3
+ 498               	.LM71:
+ 499 024e 8EE0      		ldi r24,lo8(14)
+ 500 0250 8093 C200 		sts 194,r24
+ 501               	.LBE7:
+ 502               	.LBE6:
+ 183:main.c        ****   sei ();       // enable global interrupts
+ 503               		.stabn	68,0,183,.LM72-.LFBB3
+ 504               	.LM72:
+ 505               	/* #APP */
+GAS LISTING /tmp/ccsCfOa3.s 			page 14
 
 
- 652               	.LM90:
- 653               	.LFBB5:
- 654               	/* prologue: function */
- 655               	/* frame size = 0 */
- 656 02fe 9C01      		movw r18,r24
- 240:main.c        ****   unsigned char data;
- 241:main.c        ****   if (input == -1) {
- 657               		.stabn	68,0,242,.LM91-.LFBB5
- 658               	.LM91:
- 659 0300 8FEF      		ldi r24,hi8(-1)
- 660 0302 2F3F      		cpi r18,lo8(-1)
- 661 0304 3807      		cpc r19,r24
- 662 0306 01F4      		brne .L32
- 663               	.L39:
- 242:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
- 664               		.stabn	68,0,243,.LM92-.LFBB5
- 665               	.LM92:
- 666 0308 8091 C000 		lds r24,192
- 667 030c 85FF      		sbrs r24,5
- 668 030e 00C0      		rjmp .L39
- 243:main.c        ****     // Put '\n' into the bufffer to send
- 244:main.c        ****     UDR0 = '\r';
- 669               		.stabn	68,0,245,.LM93-.LFBB5
- 670               	.LM93:
- 671 0310 8DE0      		ldi r24,lo8(13)
- 672 0312 8093 C600 		sts 198,r24
- 673               	.L34:
- 245:main.c        ****     //dont continue running the function to prevent outputing E
- 246:main.c        ****     // Wait for empty transmit buffer
- 247:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
- 674               		.stabn	68,0,248,.LM94-.LFBB5
- 675               	.LM94:
- 676 0316 8091 C000 		lds r24,192
- 677 031a 85FF      		sbrs r24,5
- 678 031c 00C0      		rjmp .L34
- 248:main.c        ****     // Put '\n' into the bufffer to send
- 249:main.c        ****     UDR0 = '\n';
- 679               		.stabn	68,0,250,.LM95-.LFBB5
- 680               	.LM95:
- 681 031e 8AE0      		ldi r24,lo8(10)
- 682 0320 00C0      		rjmp .L44
- 683               	.L32:
- 250:main.c        ****     //dont continue running the function to prevent outputing E
- 251:main.c        ****     return;
- 252:main.c        ****   }
- 253:main.c        ****   else if (input < 10 && input >= 0) {     
- 684               		.stabn	68,0,254,.LM96-.LFBB5
- 685               	.LM96:
- 686 0322 2A30      		cpi r18,10
- 687 0324 3105      		cpc r19,__zero_reg__
- 688 0326 00F4      		brsh .L36
- 689               	.L40:
- 254:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
- 690               		.stabn	68,0,255,.LM97-.LFBB5
- 691               	.LM97:
- 692 0328 8091 C000 		lds r24,192
- 693 032c 85FF      		sbrs r24,5
-GAS LISTING /tmp/cciIBnDz.s 			page 18
+ 506               	 ;  183 "main.c" 1
+ 507 0254 7894      		sei
+ 508               	 ;  0 "" 2
+ 184:main.c        ****   TIMSK1 |= (1<<OCIE1A);
+ 509               		.stabn	68,0,184,.LM73-.LFBB3
+ 510               	.LM73:
+ 511               	/* #NOAPP */
+ 512 0256 8091 6F00 		lds r24,111
+ 513 025a 8260      		ori r24,lo8(2)
+ 514 025c 8093 6F00 		sts 111,r24
+ 187:main.c        ****   TCCR1B |= (1<<CS11);
+ 515               		.stabn	68,0,187,.LM74-.LFBB3
+ 516               	.LM74:
+ 517 0260 8091 8100 		lds r24,129
+ 518 0264 8260      		ori r24,lo8(2)
+ 519 0266 8093 8100 		sts 129,r24
+ 520 026a 7FEF      		ldi r23,lo8(-1)
+ 521 026c 00C0      		rjmp .L28
+ 522               	.L21:
+ 523               	.LBB8:
+ 194:main.c        ****       while ( !(UCSR0A & (1<<RXC0))); // Wait for input
+ 524               		.stabn	68,0,194,.LM75-.LFBB3
+ 525               	.LM75:
+ 526 026e 8091 C000 		lds r24,192
+ 527 0272 87FF      		sbrs r24,7
+ 528 0274 00C0      		rjmp .L21
+ 195:main.c        ****       servnum = UDR0;
+ 529               		.stabn	68,0,195,.LM76-.LFBB3
+ 530               	.LM76:
+ 531 0276 7091 C600 		lds r23,198
+ 532               	.L28:
+ 193:main.c        ****     while (servnum&0x80) {
+ 533               		.stabn	68,0,193,.LM77-.LFBB3
+ 534               	.LM77:
+ 535 027a 77FD      		sbrc r23,7
+ 536 027c 00C0      		rjmp .L21
+ 537               	.L22:
+ 197:main.c        ****     while ( !(UCSR0A & (1<<RXC0))); // Wait for input for position
+ 538               		.stabn	68,0,197,.LM78-.LFBB3
+ 539               	.LM78:
+ 540 027e 8091 C000 		lds r24,192
+ 541 0282 87FF      		sbrs r24,7
+ 542 0284 00C0      		rjmp .L22
+ 198:main.c        ****     servpos = UDR0;
+ 543               		.stabn	68,0,198,.LM79-.LFBB3
+ 544               	.LM79:
+ 545 0286 6091 C600 		lds r22,198
+ 200:main.c        ****     if (!(servpos & 0x80)) {
+ 546               		.stabn	68,0,200,.LM80-.LFBB3
+ 547               	.LM80:
+ 548 028a 6623      		tst r22
+ 549 028c 04F4      		brge .L21
+ 205:main.c        ****     servnum = servnum & 0x1F;
+ 550               		.stabn	68,0,205,.LM81-.LFBB3
+ 551               	.LM81:
+ 552 028e 272F      		mov r18,r23
+ 553 0290 2F71      		andi r18,lo8(31)
+GAS LISTING /tmp/ccsCfOa3.s 			page 15
 
 
- 694 032e 00C0      		rjmp .L40
- 255:main.c        ****     data = '0' + input;
- 695               		.stabn	68,0,256,.LM98-.LFBB5
- 696               	.LM98:
- 697 0330 822F      		mov r24,r18
- 698 0332 805D      		subi r24,lo8(-(48))
- 699 0334 00C0      		rjmp .L44
- 700               	.L36:
- 256:main.c        ****     UDR0 = data;
- 257:main.c        ****   }
- 258:main.c        ****   else {
- 259:main.c        ****     // Output E if the number cannot be outputed
- 260:main.c        ****     UDR0 = 'E';
- 701               		.stabn	68,0,261,.LM99-.LFBB5
- 702               	.LM99:
- 703 0336 85E4      		ldi r24,lo8(69)
- 704               	.L44:
- 705 0338 8093 C600 		sts 198,r24
- 706 033c 0895      		ret
- 707               		.size	USART_Transmit, .-USART_Transmit
- 708               		.stabs	"data:r(0,11)",64,0,241,24
- 709               		.stabn	192,0,0,.LFBB5-.LFBB5
- 710               		.stabn	224,0,0,.Lscope5-.LFBB5
- 711               	.Lscope5:
- 712               		.stabs	"",36,0,0,.Lscope5-.LFBB5
- 713               		.stabd	78,0,0
- 714               		.comm bport,255,1
- 715               		.comm cport,255,1
- 716               		.comm dport,255,1
- 717               		.comm servo_add,18,1
- 718               		.comm servo_sub,18,1
- 719               		.comm servo_port,36,1
- 720               		.comm servo_pos,36,1
- 721               		.stabs	"bport:G(0,16)=ar(0,17)=r(0,17);0;0177777;;0;254;(0,18)=B(0,2)",32,0,49,0
- 722               		.stabs	"cport:G(0,16)",32,0,50,0
- 723               		.stabs	"dport:G(0,16)",32,0,51,0
- 724               		.stabs	"servo_add:G(0,19)=ar(0,17);0;17;(0,18)",32,0,54,0
- 725               		.stabs	"servo_sub:G(0,19)",32,0,55,0
- 726               		.stabs	"servo_port:G(0,20)=ar(0,17);0;17;(0,21)=*(0,18)",32,0,56,0
- 727               		.stabs	"servo_pos:G(0,22)=ar(0,17);0;17;(0,23)=B(0,1)",32,0,57,0
- 728               		.stabs	"",100,0,0,.Letext0
- 729               	.Letext0:
-GAS LISTING /tmp/cciIBnDz.s 			page 19
+ 209:main.c        ****     servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
+ 554               		.stabn	68,0,209,.LM82-.LFBB3
+ 555               	.LM82:
+ 556 0292 2150      		subi r18,lo8(-(-1))
+ 557 0294 30E0      		ldi r19,lo8(0)
+ 558 0296 A901      		movw r20,r18
+ 559 0298 440F      		lsl r20
+ 560 029a 551F      		rol r21
+ 561 029c FA01      		movw r30,r20
+ 562 029e E050      		subi r30,lo8(-(servo_pos))
+ 563 02a0 F040      		sbci r31,hi8(-(servo_pos))
+ 564 02a2 8081      		ld r24,Z
+ 565 02a4 9181      		ldd r25,Z+1
+ 566 02a6 4050      		subi r20,lo8(-(servo_port))
+ 567 02a8 5040      		sbci r21,hi8(-(servo_port))
+ 568 02aa FA01      		movw r30,r20
+ 569 02ac A081      		ld r26,Z
+ 570 02ae B181      		ldd r27,Z+1
+ 571 02b0 A80F      		add r26,r24
+ 572 02b2 B91F      		adc r27,r25
+ 573 02b4 8C91      		ld r24,X
+ 574 02b6 F901      		movw r30,r18
+ 575 02b8 E050      		subi r30,lo8(-(servo_sub))
+ 576 02ba F040      		sbci r31,hi8(-(servo_sub))
+ 577 02bc 9081      		ld r25,Z
+ 578 02be 892B      		or r24,r25
+ 579 02c0 8C93      		st X,r24
+ 210:main.c        ****     servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
+ 580               		.stabn	68,0,210,.LM83-.LFBB3
+ 581               	.LM83:
+ 582 02c2 872F      		mov r24,r23
+ 583 02c4 90E0      		ldi r25,lo8(0)
+ 584 02c6 8074      		andi r24,lo8(64)
+ 585 02c8 9070      		andi r25,hi8(64)
+ 586 02ca 880F      		lsl r24
+ 587 02cc 991F      		rol r25
+ 588 02ce 6823      		and r22,r24
+ 589 02d0 DA01      		movw r26,r20
+ 590 02d2 ED91      		ld r30,X+
+ 591 02d4 FC91      		ld r31,X
+ 592 02d6 E60F      		add r30,r22
+ 593 02d8 F11D      		adc r31,__zero_reg__
+ 594 02da 8081      		ld r24,Z
+ 595 02dc 2050      		subi r18,lo8(-(servo_add))
+ 596 02de 3040      		sbci r19,hi8(-(servo_add))
+ 597 02e0 D901      		movw r26,r18
+ 598 02e2 9C91      		ld r25,X
+ 599 02e4 8923      		and r24,r25
+ 600 02e6 8083      		st Z,r24
+ 601 02e8 00C0      		rjmp .L21
+ 602               	.LBE8:
+ 603               		.size	main, .-main
+ 604               		.stabs	"i:r(0,1)",64,0,103,24
+ 605               		.stabn	192,0,0,.LFBB3-.LFBB3
+ 606               		.stabs	"servnum:r(0,2)",64,0,191,23
+ 607               		.stabs	"servpos:r(0,2)",64,0,192,22
+ 608               		.stabn	192,0,0,.LBB8-.LFBB3
+GAS LISTING /tmp/ccsCfOa3.s 			page 16
+
+
+ 609               		.stabn	224,0,0,.LBE8-.LFBB3
+ 610               		.stabn	224,0,0,.Lscope3-.LFBB3
+ 611               	.Lscope3:
+ 612               		.stabs	"",36,0,0,.Lscope3-.LFBB3
+ 613               		.stabd	78,0,0
+ 614               		.stabs	"USART_Init:F(0,15)",36,0,222,USART_Init
+ 615               	.global	USART_Init
+ 616               		.type	USART_Init, @function
+ 617               	USART_Init:
+ 618               		.stabd	46,0,0
+ 222:main.c        **** void USART_Init(void) {
+ 619               		.stabn	68,0,222,.LM84-.LFBB4
+ 620               	.LM84:
+ 621               	.LFBB4:
+ 622               	/* prologue: function */
+ 623               	/* frame size = 0 */
+ 225:main.c        ****   UBRR0H = (unsigned char)(ubrr>>8);
+ 624               		.stabn	68,0,225,.LM85-.LFBB4
+ 625               	.LM85:
+ 626 02ea 1092 C500 		sts 197,__zero_reg__
+ 226:main.c        ****   UBRR0L = (unsigned char)ubrr;
+ 627               		.stabn	68,0,226,.LM86-.LFBB4
+ 628               	.LM86:
+ 629 02ee 89E1      		ldi r24,lo8(25)
+ 630 02f0 8093 C400 		sts 196,r24
+ 228:main.c        ****   UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+ 631               		.stabn	68,0,228,.LM87-.LFBB4
+ 632               	.LM87:
+ 633 02f4 88E1      		ldi r24,lo8(24)
+ 634 02f6 8093 C100 		sts 193,r24
+ 635               		.stabn	68,0,230,.LM88-.LFBB4
+ 636               	.LM88:
+ 637 02fa 8EE0      		ldi r24,lo8(14)
+ 638 02fc 8093 C200 		sts 194,r24
+ 639               	/* epilogue start */
+ 230:main.c        **** }
+ 640               		.stabn	68,0,231,.LM89-.LFBB4
+ 641               	.LM89:
+ 642 0300 0895      		ret
+ 643               		.size	USART_Init, .-USART_Init
+ 644               	.Lscope4:
+ 645               		.stabs	"",36,0,0,.Lscope4-.LFBB4
+ 646               		.stabd	78,0,0
+ 647               		.stabs	"USART_Transmit:F(0,15)",36,0,241,USART_Transmit
+ 648               		.stabs	"input:P(0,1)",64,0,240,18
+ 649               	.global	USART_Transmit
+ 650               		.type	USART_Transmit, @function
+ 651               	USART_Transmit:
+ 652               		.stabd	46,0,0
+ 231:main.c        **** 
+ 232:main.c        **** /******************************* USART_Transmit *******************************\
+ 233:main.c        **** | The USART_Transmit(int) function allows you to send numbers to USART serial  |
+ 234:main.c        **** | This function only handles numbers up to two digits. If there is one digit   |
+ 235:main.c        **** | the message contains a space, then the digit converted to ascii. If there    |
+ 236:main.c        **** | are two digits then the message is the first digit followed by the seccond   |
+ 237:main.c        **** | If the input is negative then the function will output a newline character   |
+ 238:main.c        **** \******************************************************************************/
+GAS LISTING /tmp/ccsCfOa3.s 			page 17
+
+
+ 239:main.c        **** void USART_Transmit( int input )
+ 240:main.c        **** {
+ 653               		.stabn	68,0,241,.LM90-.LFBB5
+ 654               	.LM90:
+ 655               	.LFBB5:
+ 656               	/* prologue: function */
+ 657               	/* frame size = 0 */
+ 658 0302 9C01      		movw r18,r24
+ 241:main.c        ****   unsigned char data;
+ 242:main.c        ****   if (input == -1) {
+ 659               		.stabn	68,0,243,.LM91-.LFBB5
+ 660               	.LM91:
+ 661 0304 8FEF      		ldi r24,hi8(-1)
+ 662 0306 2F3F      		cpi r18,lo8(-1)
+ 663 0308 3807      		cpc r19,r24
+ 664 030a 01F4      		brne .L32
+ 665               	.L39:
+ 243:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
+ 666               		.stabn	68,0,244,.LM92-.LFBB5
+ 667               	.LM92:
+ 668 030c 8091 C000 		lds r24,192
+ 669 0310 85FF      		sbrs r24,5
+ 670 0312 00C0      		rjmp .L39
+ 244:main.c        ****     // Put '\n' into the bufffer to send
+ 245:main.c        ****     UDR0 = '\r';
+ 671               		.stabn	68,0,246,.LM93-.LFBB5
+ 672               	.LM93:
+ 673 0314 8DE0      		ldi r24,lo8(13)
+ 674 0316 8093 C600 		sts 198,r24
+ 675               	.L34:
+ 246:main.c        ****     //dont continue running the function to prevent outputing E
+ 247:main.c        ****     // Wait for empty transmit buffer
+ 248:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
+ 676               		.stabn	68,0,249,.LM94-.LFBB5
+ 677               	.LM94:
+ 678 031a 8091 C000 		lds r24,192
+ 679 031e 85FF      		sbrs r24,5
+ 680 0320 00C0      		rjmp .L34
+ 249:main.c        ****     // Put '\n' into the bufffer to send
+ 250:main.c        ****     UDR0 = '\n';
+ 681               		.stabn	68,0,251,.LM95-.LFBB5
+ 682               	.LM95:
+ 683 0322 8AE0      		ldi r24,lo8(10)
+ 684 0324 00C0      		rjmp .L44
+ 685               	.L32:
+ 251:main.c        ****     //dont continue running the function to prevent outputing E
+ 252:main.c        ****     return;
+ 253:main.c        ****   }
+ 254:main.c        ****   else if (input < 10 && input >= 0) {     
+ 686               		.stabn	68,0,255,.LM96-.LFBB5
+ 687               	.LM96:
+ 688 0326 2A30      		cpi r18,10
+ 689 0328 3105      		cpc r19,__zero_reg__
+ 690 032a 00F4      		brsh .L36
+ 691               	.L40:
+ 255:main.c        ****     while ( !( UCSR0A & (1<<UDRE0)) );
+ 692               		.stabn	68,0,256,.LM97-.LFBB5
+GAS LISTING /tmp/ccsCfOa3.s 			page 18
+
+
+ 693               	.LM97:
+ 694 032c 8091 C000 		lds r24,192
+ 695 0330 85FF      		sbrs r24,5
+ 696 0332 00C0      		rjmp .L40
+ 256:main.c        ****     data = '0' + input;
+ 697               		.stabn	68,0,257,.LM98-.LFBB5
+ 698               	.LM98:
+ 699 0334 822F      		mov r24,r18
+ 700 0336 805D      		subi r24,lo8(-(48))
+ 701 0338 00C0      		rjmp .L44
+ 702               	.L36:
+ 257:main.c        ****     UDR0 = data;
+ 258:main.c        ****   }
+ 259:main.c        ****   else {
+ 260:main.c        ****     // Output E if the number cannot be outputed
+ 261:main.c        ****     UDR0 = 'E';
+ 703               		.stabn	68,0,262,.LM99-.LFBB5
+ 704               	.LM99:
+ 705 033a 85E4      		ldi r24,lo8(69)
+ 706               	.L44:
+ 707 033c 8093 C600 		sts 198,r24
+ 708 0340 0895      		ret
+ 709               		.size	USART_Transmit, .-USART_Transmit
+ 710               		.stabs	"data:r(0,11)",64,0,242,24
+ 711               		.stabn	192,0,0,.LFBB5-.LFBB5
+ 712               		.stabn	224,0,0,.Lscope5-.LFBB5
+ 713               	.Lscope5:
+ 714               		.stabs	"",36,0,0,.Lscope5-.LFBB5
+ 715               		.stabd	78,0,0
+ 716               		.comm bport,255,1
+ 717               		.comm cport,255,1
+ 718               		.comm dport,255,1
+ 719               		.comm servo_add,18,1
+ 720               		.comm servo_sub,18,1
+ 721               		.comm servo_port,36,1
+ 722               		.comm servo_pos,36,1
+ 723               		.stabs	"bport:G(0,16)=ar(0,17)=r(0,17);0;0177777;;0;254;(0,18)=B(0,2)",32,0,50,0
+ 724               		.stabs	"cport:G(0,16)",32,0,51,0
+ 725               		.stabs	"dport:G(0,16)",32,0,52,0
+ 726               		.stabs	"servo_add:G(0,19)=ar(0,17);0;17;(0,18)",32,0,55,0
+ 727               		.stabs	"servo_sub:G(0,19)",32,0,56,0
+ 728               		.stabs	"servo_port:G(0,20)=ar(0,17);0;17;(0,21)=*(0,18)",32,0,57,0
+ 729               		.stabs	"servo_pos:G(0,22)=ar(0,17);0;17;(0,23)=B(0,1)",32,0,58,0
+ 730               		.stabs	"",100,0,0,.Letext0
+ 731               	.Letext0:
+GAS LISTING /tmp/ccsCfOa3.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/cciIBnDz.s:2      *ABS*:000000000000003f __SREG__
-     /tmp/cciIBnDz.s:3      *ABS*:000000000000003e __SP_H__
-     /tmp/cciIBnDz.s:4      *ABS*:000000000000003d __SP_L__
-     /tmp/cciIBnDz.s:5      *ABS*:0000000000000034 __CCP__
-     /tmp/cciIBnDz.s:6      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cciIBnDz.s:7      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cciIBnDz.s:74     .text:0000000000000000 __vector_11
+     /tmp/ccsCfOa3.s:2      *ABS*:000000000000003f __SREG__
+     /tmp/ccsCfOa3.s:3      *ABS*:000000000000003e __SP_H__
+     /tmp/ccsCfOa3.s:4      *ABS*:000000000000003d __SP_L__
+     /tmp/ccsCfOa3.s:5      *ABS*:0000000000000034 __CCP__
+     /tmp/ccsCfOa3.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccsCfOa3.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccsCfOa3.s:74     .text:0000000000000000 __vector_11
                             *COM*:00000000000000ff bport
                             *COM*:00000000000000ff cport
                             *COM*:00000000000000ff dport
-     /tmp/cciIBnDz.s:197    .text:00000000000000a8 wait
-     /tmp/cciIBnDz.s:245    .text:00000000000000c8 main
+     /tmp/ccsCfOa3.s:199    .text:00000000000000ac wait
+     /tmp/ccsCfOa3.s:247    .text:00000000000000cc main
                             *COM*:0000000000000012 servo_add
                             *COM*:0000000000000024 servo_port
                             *COM*:0000000000000024 servo_pos
                             *COM*:0000000000000012 servo_sub
-     /tmp/cciIBnDz.s:615    .text:00000000000002e6 USART_Init
-     /tmp/cciIBnDz.s:649    .text:00000000000002fe USART_Transmit
+     /tmp/ccsCfOa3.s:617    .text:00000000000002ea USART_Init
+     /tmp/ccsCfOa3.s:651    .text:0000000000000302 USART_Transmit
 
 UNDEFINED SYMBOLS
 __do_copy_data

@@ -43,6 +43,7 @@
 \******************************************************************************/
 
 
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
@@ -72,7 +73,7 @@ ISR(TIMER1_COMPA_vect) {
     PORTC &= cport[i];
     PORTD &= dport[i];
     // calculate
-    long newtime = (500) + i*(500/256);    
+    long newtime = (1000) + i*(1000/256);    
     // wait here untill the next cycle should start
     while (TCNT1 < newtime);
   }
@@ -108,7 +109,7 @@ int main (void) {
   
   // SERVO TIMER INITILIZATION
   TCCR1B |= (1<<WGM12);
-  OCR1A = 10000;
+  OCR1A = 20000;
   
   //Initlize Off Port Bits
   for (i = 0 ; i < 256; i++) {
@@ -116,9 +117,9 @@ int main (void) {
     cport[i] = 0xFF;
     dport[i] = 0xFF;
   }
-  bport[0] = 0x00;
-  cport[0] = 0x00;
-  dport[0] = 0x00;
+  bport[127] = 0x00;
+  cport[127] = 0x00;
+  dport[127] = 0x00;
   
   // Initlize Servos
   

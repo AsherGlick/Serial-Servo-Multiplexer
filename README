@@ -51,7 +51,7 @@ II. How to talk to the Multiplexor
   |                                                                            |
   | // Bitshift the bytes                                                      |
   | IDByte &= (ROTByte & 0x80)>>1; // shift ROT0 to the right and add to NUM   |
-  | ROTByte &= 0x80; // put a 1 in the spot where ROT0 used to be              |
+  | ROTByte |= 0x80; // put a 1 in the spot where ROT0 used to be              |
   |                                                                            |
   | // Now the values are set and you can send them                            |
   | Serial.send(IDByte);                                                       |
