@@ -5,10 +5,11 @@ Documentation Coming Soon!
 
 I. Compileing and running the program  
 II. How to talk to the Multiplexor
-III. How the program works
+III. How to Hook up the servos
+IV. How the program works
   A. Serial Communication
   B. Emulating PWM
-IV. Using serial pins as servos and internal programming
+V. Using serial pins as servos and internal programming
 
 
 ------------------------------------
@@ -57,9 +58,13 @@ II. How to talk to the Multiplexor
   | Serial.send(ROTByte);                                                      |
   +----------------------------------------------------------------------------+
   
-  
+ 
+ 
+------------------------------
+III. How to Hook Up the Servos
+------------------------------ 
 --------------------------
-III. How the program works
+IV. How the program works
 --------------------------
   
   Serial communication
@@ -76,7 +81,7 @@ III. How the program works
   Emulating PWM
   
 --------------------------------------------------------
-IV. Using serial pins as servos and internal programming
+V. Using serial pins as servos and internal programming
 --------------------------------------------------------
   Due to the nature of the AVR the two pins that function as serial can also function as digital IO. So it is possible that you can not use the serial commands and instead use an internal program. Do to a the interrupt program, every 20 miliseconds there is a 2 milisecond gap where the interrupt function runs. Therefore effectively slowing down the program computation by 10% while keeping the clock rate the same. As a result you will need to write your code such that it is able to run in the ammount of time you have.
   You can also re-set fuses such that the 'reset' button can also be used as a digital IO in order to use it for the PWM. 
