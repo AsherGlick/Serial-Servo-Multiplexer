@@ -73,7 +73,7 @@ ISR(TIMER1_COMPA_vect) {
     PORTC &= cport[i];
     PORTD &= dport[i];
     // calculate
-    long newtime = (1000) + i*(1000/256);    
+    long newtime = (1000) + i*(1000/256);
     // wait here untill the next cycle should start
     while (TCNT1 < newtime);
   }
@@ -117,9 +117,9 @@ int main (void) {
     cport[i] = 0xFF;
     dport[i] = 0xFF;
   }
-  bport[127] = 0x00;
-  cport[127] = 0x00;
-  dport[127] = 0x00;
+  bport[50] = 0x00;
+  cport[200] = 0x00;
+  dport[100] = 0x00;
   
   // Initlize Servos
   
@@ -206,8 +206,8 @@ int main (void) {
     servnum = servnum - 1; // the first servo is servo 
     // Analize input
     
-    servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
-    servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
+    //servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
+    //servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
   }
 }
 
