@@ -117,9 +117,9 @@ int main (void) {
     cport[i] = 0xFF;
     dport[i] = 0xFF;
   }
-  bport[50] = 0x00;
-  cport[200] = 0x00;
-  dport[100] = 0x00;
+  bport[128] = 0x00;
+  cport[128] = 0x00;
+  dport[128] = 0x00;
   
   // Initlize Servos
   
@@ -132,12 +132,14 @@ int main (void) {
   servo_add [3]  = !(1<<3);
   servo_add [4]  = !(1<<4);
   servo_add [5]  = !(1<<5);
+  
   servo_add [6]  = !(1<<0);
   servo_add [7]  = !(1<<1);
   servo_add [8]  = !(1<<2);
   servo_add [9]  = !(1<<3);
   servo_add [10] = !(1<<4);
   servo_add [11] = !(1<<5);
+  
   servo_add [12] = !(1<<2);
   servo_add [13] = !(1<<3);
   servo_add [14] = !(1<<4);
@@ -154,12 +156,14 @@ int main (void) {
   servo_port [3]  = bport;
   servo_port [4]  = bport;
   servo_port [5]  = bport;
+  
   servo_port [6]  = cport;
   servo_port [7]  = cport;
   servo_port [8]  = cport;
   servo_port [9]  = cport;
   servo_port [10] = cport;
   servo_port [11] = cport;
+  
   servo_port [12] = dport;
   servo_port [13] = dport;
   servo_port [14] = dport;
@@ -168,12 +172,12 @@ int main (void) {
   servo_port [17] = dport;  
   
   // set the initial positions
-  for (i = 0; i < 256; i ++) {
+  for (i = 0; i < 18; i ++) {
     servo_pos [i]  = 0;
   }
   
   //set the subtract bytes
-  for (i = 0; i < 256; i ++) {
+  for (i = 0; i < 18; i ++) {
     servo_sub[0] = !servo_add[0];
   }
   // USART INITILIZATION
