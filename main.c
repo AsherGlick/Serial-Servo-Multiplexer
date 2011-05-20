@@ -1,5 +1,5 @@
 /***********************************************************************\
-| Serial Servo Multiplexer                                               |
+| Serial Servo Multiplexer                                              |
 | Copyright (C) 2011  Asher Glick                                       |
 |                                                                       |
 | This program is free software: you can redistribute it and/or modify  |
@@ -210,8 +210,8 @@ int main (void) {
     servnum = servnum - 1; // the first servo is servo 
     // Analize input
     
-    //servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
-    //servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
+    servo_port[(int)servnum][(int)servo_pos[(int)servnum]] |= servo_sub[(int)servnum];
+    servo_port[(int)servnum][(int)servpos] &= servo_add[(int)servnum]; 
   }
 }
 
